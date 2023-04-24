@@ -1,0 +1,18 @@
+@mixin desktop-behavior{
+    @media (min-width: 1280px){
+        @content;
+    }
+}
+@mixin tablet-behavior{
+    @media (min-width: 768px) and (max-width: 1279px){
+        @content;
+    }
+}
+@mixin mobile-behavior{
+    @media (min-width: 1px) and (max-width: 767px){
+        @content;
+    }
+}
+@mixin mobile-padding{
+    padding: 0.75rem 1rem 0.75rem 1rem;
+}
