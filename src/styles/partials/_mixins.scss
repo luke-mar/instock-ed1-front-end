@@ -1,18 +1,104 @@
-@mixin desktop-behavior{
-    @media (min-width: 1280px){
+@use './globals' as *;
+@use './typography' as *;
+@use './variables' as *;
+
+// screen breakpoints
+@mixin tablet {
+    @media (min-width: $breakpoint-tablet) {
         @content;
     }
 }
-@mixin tablet-behavior{
-    @media (min-width: 768px) and (max-width: 1279px){
+
+@mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
         @content;
     }
 }
-@mixin mobile-behavior{
-    @media (min-width: 1px) and (max-width: 767px){
-        @content;
-    }
+
+
+// font mixins - mobile
+
+@mixin m-h1-page-header{
+    font-family: 'titillium';
+    font-size: 1.75rem;
+    line-height: 2.25rem;
 }
-@mixin mobile-padding{
-    padding: 0.75rem 1rem 0.75rem 1rem;
+
+@mixin m-h2-subheader{
+    font-family: 'titillium';
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+@mixin m-h3-labels-links-buttons{
+    font-family: 'titillium';
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin m-h4-table-header{
+    font-family: 'titillium';
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+@mixin m-p1-body-large{
+    font-family: 'titillium';
+    font-size: .9375rem;
+    line-height: 1.625rem;
+}
+
+@mixin m-p2-body-medium{
+    font-family: 'titillium';
+    font-size: .8125rem;
+    line-height: 1.25rem;
+}
+
+@mixin m-p3-body-small{
+    font-family: 'titillium';
+    font-size: .6875rem;
+    line-height: 1rem;
+}
+
+// font mixins - desktop/tablet
+@mixin td-h1-page-header{
+    font-family: 'titillium';
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+@mixin td-h2-subheader{
+    font-family: 'titillium';
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+@mixin td-h3-labels-links-buttons{
+    font-family: 'titillium';
+    font-size: .875rem;
+    line-height: 1.375rem;
+}
+
+@mixin td-h4-table-header{
+    font-family: 'titillium';
+    font-size: .75rem;
+    line-height: 1.125rem;
+}
+
+@mixin td-p1-body-large{
+    font-family: 'titillium';
+    font-size: 1rem;
+    line-height: 1.75rem;
+}
+
+@mixin td-p2-body-medium{
+    font-family: 'titillium';
+    font-size: .875rem;
+    line-height: 1.375rem;
+}
+
+@mixin td-p3-body-small{
+    font-family: 'titillium';
+    font-size: .75rem;
+    line-height: 1.125rem;
 }
