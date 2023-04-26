@@ -1,0 +1,30 @@
+@use "../styles/partials/mixins" as *;
+@use "../styles/partials/variables" as *;
+@use "../styles/partials/typography" as *;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Titillium";
+}
+.header {
+    padding: 24px 16px;
+    background-color: #13182C;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+    @include tablet-behavior {
+        height: 10vh;
+        flex-direction: row;
+    }
+    &__navList {
+        display: flex;
+        flex-direction: row;
+    }
+    &__navItem {
+        list-style: none;
+    }
+}
