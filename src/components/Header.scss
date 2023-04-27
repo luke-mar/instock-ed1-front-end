@@ -1,30 +1,53 @@
 @use "../styles/partials/mixins" as *;
 @use "../styles/partials/variables" as *;
-@use "../styles/partials/typography" as *;
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Titillium";
-}
 .header {
     padding: 24px 16px;
-    background-color: #13182C;
-    color: #FFFFFF;
+    background-color: $background-graphite;
+    color: $primary-white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 20vh;
-    @include tablet-behavior {
-        height: 10vh;
+    align-items: center;
+    height: 25vw;
+    @include tablet {
+        height: 15vw;
         flex-direction: row;
+    }
+    &__nav {
+        width: 100%;
     }
     &__navList {
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
     }
     &__navItem {
-        list-style: none;
+        padding: 0 24px;
+    }
+    &__navItemLink {
+        background-color: $background-graphite;
+        color: $primary-white;
+        text-decoration: none;
+        border-radius: 20px;
+        height: 36px;
+        width: 50%;
+    }
+    &__navItemLink--active {
+        background-color: $primary-black;
+        color: $primary-white;
+        text-decoration: none;
+        border-radius: 20px;
+        height: 36px;
+        width: 50%;
+        // padding: 16px 24px;
+    }
+    &__navItemLink :hover {
+        border-radius: 20px;
+        height: 36px;
+        background-color: $primary-black;
     }
 }
