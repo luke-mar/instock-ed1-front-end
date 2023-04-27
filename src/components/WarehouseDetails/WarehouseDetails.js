@@ -28,25 +28,25 @@ const WarehouseDetails = () => {
                     </h1>
                 </div>
                 <div className="warehouseDetails__header-edit-button-container">
-                    <button className="warehouseDetails__header-location-edit-button"> <img src={edit} alt="" />  Edit</button>
+                    <button className="warehouseDetails__header-location-edit-button"> <img src={edit} alt="edit icon" />  Edit</button>
                 </div>
             </div>
             <div className="warehouseDetails__description-container">
-                <div>
-                    <p>WAREHOUSE ADDRESS:</p>
-                    <p>{warehouse[0].address}</p>
-                    <p>{warehouse[0].city}, {warehouse[0].country}</p>
+                <div className="warehouseDetails__description-address">
+                    <h4 className="warehouseDetails__description-address-subheader">WAREHOUSE ADDRESS:</h4>
+                    <p className="warehouseDetails__description-contact-info">{warehouse[0].address}</p>
+                    <p className="warehouseDetails__description-contact-info">{warehouse[0].city}, {warehouse[0].country}</p>
                 </div>
                 <div className="warehouseDetails__contact-container">
-                    <div>
-                    <p>CONTACT NAME:</p>
-                    <p>{warehouse[0].contact_name}</p>
-                    <p>{warehouse[0].contact_position}</p>
+                    <div className="warehouseDetails__contact-container-info">
+                    <h4 className="warehouseDetails__description-address-subheader">CONTACT NAME:</h4>
+                    <p className="warehouseDetails__description-contact-info">{warehouse[0].contact_name}</p>
+                    <p className="warehouseDetails__description-contact-info">{warehouse[0].contact_position}</p>
                     </div>
-                    <div>
-                        <p>CONTACT INFORMATION:</p>
-                        <p>{warehouse[0].contact_phone}</p>
-                        <p>{warehouse[0].contact_email}</p>
+                    <div className="warehouseDetails__contact-container-info">
+                        <h4 className="warehouseDetails__description-address-subheader">CONTACT INFORMATION:</h4>
+                        <p className="warehouseDetails__description-contact-info">{warehouse[0].contact_phone}</p>
+                        <p className="warehouseDetails__description-contact-info">{warehouse[0].contact_email}</p>
                     </div>
                 </div>
             </div>
