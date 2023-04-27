@@ -42,8 +42,6 @@
         @include m-p2-body-medium;
         color: $primary-white;
         text-decoration: none;
-        border-radius: 20px;
-        // width: 50%;
         padding: 8px 24px;
     }
     &__navItemLink:hover {
@@ -51,7 +49,6 @@
         text-decoration: underline;
     }
     &__navItemLink:active {
-        width: 50%;
         background-color: $primary-black;
         color: $primary-white;
         text-decoration: none;
