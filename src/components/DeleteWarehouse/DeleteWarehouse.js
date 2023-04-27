@@ -1,4 +1,4 @@
-import "../../componets/DeleteWarehouses/DeleteWarehouses.scss"
+import "./DeleteWarehouse.scss"
 import close from "../../assets/Icons/close-24px.svg"
 import axios from "axios";
 
@@ -22,7 +22,7 @@ const handleClick = e => {
 }
 
 
-function DeleteWarehouses({ onclose }) {
+function DeleteWarehouse({ onclose }) {
     return (
         <div className="delete-container">
             <img onClick={onclose} className="delete-container__close-image" src={close} alt="close" />
@@ -42,4 +42,4 @@ function DeleteWarehouses({ onclose }) {
     );
 }
 
-export default DeleteWarehouses;
+export default DeleteWarehouse;

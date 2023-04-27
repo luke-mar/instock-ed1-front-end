@@ -2,8 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import DeleteWarehouses from './componets/DeleteWarehouses/DeleteWarehouses';
-import TestDelete from './componets/TesteDelete/TestDelete';
+import TestDelete from './components/TesteDelete/TestDelete';
 
 function App() {
   return (
