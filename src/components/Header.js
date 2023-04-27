@@ -1,5 +1,6 @@
 import logo from "../assets/Logo/InStock-Logo_1x.png";
 import "./Header.scss";
+import "../styles/partials/_globals.scss";
 
 function Header() {
     return (

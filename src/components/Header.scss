@@ -1,5 +1,6 @@
 @use "../styles/partials/mixins" as *;
 @use "../styles/partials/variables" as *;
+@use "../styles/partials/globals" as *;
 
 .header {
     padding: 24px 16px;
@@ -7,47 +8,54 @@
     color: $primary-white;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    height: 25vw;
+    height: 30vw;
     @include tablet {
-        height: 15vw;
+        height: 10vh;
         flex-direction: row;
+    }
+    &__logo {
+        padding-bottom: 8px;
+        @include tablet {
+            width: 50%;
+        }
     }
     &__nav {
         width: 100%;
+        @include tablet {
+            width: 50%;
+        }
     }
     &__navList {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         list-style-type: none;
         padding: 0;
         width: 100%;
-    }
-    &__navItem {
-        padding: 0 24px;
+        @include tablet {
+            justify-content: flex-end;
+        }
     }
     &__navItemLink {
-        background-color: $background-graphite;
+        @include m-p2-body-medium;
         color: $primary-white;
         text-decoration: none;
         border-radius: 20px;
-        height: 36px;
-        width: 50%;
+        // width: 50%;
+        padding: 8px 24px;
     }
-    &__navItemLink--active {
+    &__navItemLink:hover {
+        font-weight: 600;
+        text-decoration: underline;
+    }
+    &__navItemLink:active {
+        width: 50%;
         background-color: $primary-black;
         color: $primary-white;
         text-decoration: none;
         border-radius: 20px;
         height: 36px;
-        width: 50%;
-        // padding: 16px 24px;
-    }
-    &__navItemLink :hover {
-        border-radius: 20px;
-        height: 36px;
-        background-color: $primary-black;
     }
 }
