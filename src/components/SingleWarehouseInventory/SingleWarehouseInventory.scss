@@ -35,10 +35,16 @@
         color: $primary-indigo;
         width: calc(25% - 2rem);
     }
-    &__stock{
+    &__stock-red{
         color: $supporting-red;
         border-radius: 4px;
         text-shadow: 0 0 5px lightpink,0 0 5px lightpink;
+        width: calc(25% - 2rem);
+    }
+    &__stock-blue{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
         width: calc(25% - 2rem);
     }
     &__icons{
@@ -54,6 +60,19 @@
     &__category{
         width: calc(25% - 2rem);
     }
+}
+
+.in-stock{
+        color:blue;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
+        width: calc(25% - 2rem);
+}
+.out-of-stock{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px pink,0 0 5px pink;
+        width: calc(25% - 2rem);
 }
 
 .column{

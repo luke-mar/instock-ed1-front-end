@@ -36,7 +36,7 @@ function SingleWarehouseInventory(props) {
                         <div className="inventory-item">
                             <p className="inventory-item__name">{invent.item_name} </p>
                             <p className="inventory-item__category">{invent.category}</p>
-                            <p className="inventory-item__stock">{invent.status}</p>
+                            <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
                             <div className="row">
                                 <p className="inventory-item__quantity">{invent.quantity}</p>
                                 <div className="inventory-item__icons">
