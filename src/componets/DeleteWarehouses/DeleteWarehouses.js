@@ -7,7 +7,7 @@ const handleClick = e => {
     // setDisplayValue(inputValue);
 
     // Simple POST request with a JSON body using axios
-    axios.delete('http://localhost:8080/warehouses/id', {
+    axios.delete('http://localhost:8080/warehouses/bb1491eb-30e6-4728-a5fa-72f89feaf622', {
 
     })
         .then(response => {
