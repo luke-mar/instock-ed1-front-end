@@ -1,0 +1,62 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'titillium';
+}
+.inventory-titles{
+    background-color: $background-grey;
+    padding: 1rem 2rem;
+    color: $secondary-slate;
+    display: flex;
+    align-items: center;
+    //width: 100%;
+    &__text{
+        width: calc(25% - 2rem);
+    }
+    &__last-text{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.inventory-item{
+    width: 100%;
+    border-bottom: 2px solid $secondary-cloud;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    &__name{
+        color: $primary-indigo;
+        width: calc(25% - 2rem);
+    }
+    &__stock{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightpink,0 0 5px lightpink;
+        width: calc(25% - 2rem);
+    }
+    &__icons{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &__quantity{
+        width: calc(25%);
+    }
+    &__category{
+        width: calc(25% - 2rem);
+    }
+}
+
+.column{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
