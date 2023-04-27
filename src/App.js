@@ -14,7 +14,6 @@ function App() {
               <Route path="/warehouses" element={<WarehouseList />} />
             </Routes>
             {/* <DeleteWarehouses/> */}
-            <TestDelete />
         </>
     );
 }
