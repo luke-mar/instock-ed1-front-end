@@ -23,8 +23,10 @@ function SingleWarehouseInventory(props) {
             <p className="inventory-titles__text">INVENTORY ITEM</p>
             <p className="inventory-titles__text">CATEGORY</p>
             <p className="inventory-titles__text">STATUS</p>
-            <p className="inventory-titles__text">QUANTITY</p>
-            <p className="inventory-titles__last-text">ACTIONS</p>
+            <div className="row">
+                <p className="inventory-titles__text2">QUANTITY</p>
+                <p className="inventory-titles__last-text">ACTIONS</p>
+                </div>    
           </div>
         
         <div className="column">
@@ -32,14 +34,16 @@ function SingleWarehouseInventory(props) {
                 inventoryList.filter(item => item.warehouse_name === 'Manhattan').map (invent =>{
                     return (
                         <div className="inventory-item">
-                        <p className="inventory-item__name">{invent.item_name} </p>
-                        <p className="inventory-item__category">{invent.category}</p>
-                        <p className="inventory-item__stock">{invent.status}</p>
-                        <p className="inventory-item__quantity">{invent.quantity}</p>
-                        <div className="inventory-item__icons">
-                            <img src={deleteImg}></img>
-                            <img src={edit}></img>
-                        </div>
+                            <p className="inventory-item__name">{invent.item_name} </p>
+                            <p className="inventory-item__category">{invent.category}</p>
+                            <p className="inventory-item__stock">{invent.status}</p>
+                            <div className="row">
+                                <p className="inventory-item__quantity">{invent.quantity}</p>
+                                <div className="inventory-item__icons">
+                                    <img src={deleteImg}></img>
+                                    <img src={edit}></img>
+                                </div>
+                            </div>  
                         </div>
                     );
                 })
