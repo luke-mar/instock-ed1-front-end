@@ -12,22 +12,22 @@
     align-items: center;
     height: 30vw;
     @include tablet {
+        padding: 24px 32px;
         height: 10vh;
         flex-direction: row;
+    }
+    @include desktop {
+        padding: 24px 80px;
     }
     &__logo {
         padding-bottom: 8px;
         @include tablet {
+            padding-bottom: unset;
             width: 50%;
         }
     }
     &__nav {
         width: 100%;
-        @include tablet {
-            width: 50%;
-        }
-    }
-    &__navList {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -35,24 +35,33 @@
         padding: 0;
         width: 100%;
         @include tablet {
+            width: 50%;
             justify-content: flex-end;
         }
     }
     &__navItemLink {
+        width: 50%;
+        display: flex;
+        justify-content: center;
         @include m-p2-body-medium;
         color: $primary-white;
         text-decoration: none;
-        padding: 8px 24px;
+        padding: 8px 25%;
+        @include tablet {
+            width: unset;
+            padding: 8px 16px;
+        }
     }
     &__navItemLink:hover {
         font-weight: 600;
         text-decoration: underline;
     }
-    &__navItemLink:active {
+    &__navItemLink:focus {
         background-color: $primary-black;
         color: $primary-white;
         text-decoration: none;
         border-radius: 20px;
         height: 36px;
+        font-weight: 600;
     }
 }
