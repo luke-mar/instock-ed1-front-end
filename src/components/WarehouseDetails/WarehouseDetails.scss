@@ -1,0 +1,32 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouseDetails{
+    padding: 1rem;
+
+    &__header-container{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    &__header-location-container{
+        display: flex;
+    }
+    &__header-location{
+        @include m-h1-page-header;
+        &-back-button{
+            background-color: $primary-white;
+            border: none;
+        }
+    }
+    &__description-container{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    &__contact-container{
+        display: flex;
+    }
+
+}
