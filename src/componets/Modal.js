@@ -5,8 +5,8 @@ import ReactDom from "react-dom";
 function Modal({ open, children }) {
     if (!open) return null
     return ReactDom.createPortal(
-        <div className="overlay">
-            <div className="model-class">
+        <div className="modal-overlay">
+            <div className="model-overlay__container">
                 {children}
             </div>
         </div>,

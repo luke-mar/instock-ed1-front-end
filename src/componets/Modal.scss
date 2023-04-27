@@ -2,12 +2,11 @@
 @use '../styles/partials/variables' as *;
 @use '../styles/partials/typography' as *;
 
-.model-class {
-    // z-index: 1000;
+.modal-overlay__container {
     padding: 10px;
 }
 
-.overlay {
+.modal-overlay{
     position: fixed;
     top: 0;
     left: 0;

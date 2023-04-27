@@ -14,7 +14,7 @@ function TesteDelete() {
                 <DeleteWarehouses onclose={()=>setIsOpen(false)}>
                 </DeleteWarehouses>
             </Modal>
-            <div className="teste2">It will change</div>
+            <div className="teste2"onClick={() => setIsOpen(true)} >It will change</div>
         </div>
 
     );
