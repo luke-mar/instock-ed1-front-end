@@ -1,9 +1,9 @@
-import "../../src/componets/TesteDelete.scss"
-import DeleteWarehouses from "./DeleteWarehouses";
-import Modal from "./Modal";
+import "../TesteDelete/TestDelete.scss"
+import DeleteWarehouses from "../DeleteWarehouses/DeleteWarehouses";
+import Modal from "../Modal/Modal";
 import React, { useState } from "react";
 
-function TesteDelete() {
+function TestDelete() {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <div className="teste">
@@ -20,4 +20,4 @@ function TesteDelete() {
     );
 }
 
-export default TesteDelete;
+export default TestDelete;

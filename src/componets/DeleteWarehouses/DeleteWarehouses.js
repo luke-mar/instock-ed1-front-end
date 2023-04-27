@@ -1,5 +1,5 @@
-import "../../src/componets/DeleteWarehouses.scss"
-import close from "../../src/assets/Icons/close-24px.svg"
+import "../../componets/DeleteWarehouses/DeleteWarehouses.scss"
+import close from "../../assets/Icons/close-24px.svg"
 import axios from "axios";
 
 const handleClick = e => {
