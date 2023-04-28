@@ -12,10 +12,10 @@ function AddInventory({ onclose }) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/warehouses')
+        axios.get('http://localhost:8080/inventories')
             .then(response => {
                 if (response.data) {
-                    setWarehouses(response.data)
+                    setInventories(response.data)
                 }
             })
             .catch(error => {
