@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
@@ -13,9 +13,17 @@ function WarehouseList() {
     const [warehouses, setWarehouses] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
+    const [deleteCount, setDeleteCount] = useState(0);
 
 
-    function handleLinkClick(event){
+    function refreshFunction() {
+        setDeleteCount(deleteCount + 1);
+        console.log("updated deleteCount to", deleteCount);
+
+    }
+
+
+    function handleLinkClick(event) {
         const warehouseId = event.target.id;
         console.log(warehouseId);
     }
@@ -27,9 +35,11 @@ function WarehouseList() {
     }
 
     useEffect(() => {
+        console.log("calling axios")
         axios
             .get("http://localhost:8080/warehouses")
             .then((response) => {
+                console.log("got a response from axios", response)
                 if (response.data) {
                     setWarehouses(response.data);
                 }
@@ -37,7 +47,7 @@ function WarehouseList() {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [deleteCount]);
 
     return (
         <>
@@ -46,6 +56,7 @@ function WarehouseList() {
                     <DeleteWarehouse
                         warehouseToDelete={warehouseToDelete}
                         onclose={() => setIsOpen(false)}
+                        refreshFunction={refreshFunction}
                     ></DeleteWarehouse>
                 </Modal>
             </div>
