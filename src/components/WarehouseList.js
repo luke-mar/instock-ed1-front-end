@@ -59,7 +59,7 @@ function WarehouseList() {
 
                     <tbody className='warehouses-lists__content-rows'>
                         {warehouses.map((warehouses, index) =>
-                            <tr key={index} className='warehouses__list-content-row'>
+                            <tr key={index} className='warehouses-lists__content-row'>
                                 <td className='warehouses-list__row-cell warehouses-list__warehouse'>
                                     <div className='warehouse-list__title'>WAREHOUSE</div>
                                     <br />
