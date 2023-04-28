@@ -9,29 +9,30 @@ const InventoryDetail = () => {
                 <div className="inventoryDetail__header-location-container">
                     <button className="inventoryDetail__header-location-back-button"> <img src={backArrow} alt="" /> </button>
                     <h1 className="inventoryDetail__header-location">
-                        Inventory Item
+                        Television
                     </h1>
                 </div>
-                <div className="warehouseDetails__header-edit-button-container">
+                <div className="inventoryDetail__header-edit-button-container">
                     <button className="warehouseDetails__header-location-edit-button"> <img src={edit} alt="edit icon" />  Edit</button>
                 </div>
             </div>
-            <div className="warehouseDetails__description-container">
-                <div className="warehouseDetails__description-address">
-                    <h4 className="warehouseDetails__description-address-subheader">WAREHOUSE ADDRESS:</h4>
-                    <p className="warehouseDetails__description-contact-info">{warehouse.address}</p>
-                    <p className="warehouseDetails__description-contact-info">{warehouse.city}, {warehouse.country}</p>
+            <div className="inventoryDetail__description-container">
+                <div className="inventoryDetail__description-address">
+                    <h4 className="warehouseDetails__description-address-subheader">ITEM DESCRIPTION:</h4>
+                    <p className="warehouseDetails__description-contact-info">This 50", 4K LED TV provides a crystal-clear picture and vivid colors</p>
+                    <h4>CATEGORY:</h4>
+                    <p className="warehouseDetails__description-contact-info">Electronics</p>
                 </div>
                 <div className="warehouseDetails__contact-container">
                     <div className="warehouseDetails__contact-container-info">
-                    <h4 className="warehouseDetails__description-address-subheader">CONTACT NAME:</h4>
-                    <p className="warehouseDetails__description-contact-info">{warehouse.contact_name}</p>
-                    <p className="warehouseDetails__description-contact-info">{warehouse.contact_position}</p>
+                    <h4 className="warehouseDetails__description-address-subheader">STATUS</h4>
+                    <p className="warehouseDetails__description-contact-info">IN STOCK</p>
+                    <h4>WAREHOUSE:</h4>
+                    <p className="warehouseDetails__description-contact-info">Washington</p>
                     </div>
                     <div className="warehouseDetails__contact-container-info">
-                        <h4 className="warehouseDetails__description-address-subheader">CONTACT INFORMATION:</h4>
-                        <p className="warehouseDetails__description-contact-info">{warehouse.contact_phone}</p>
-                        <p className="warehouseDetails__description-contact-info">{warehouse.contact_email}</p>
+                        <h4 className="warehouseDetails__description-address-subheader">QUANTITY</h4>
+                        <p className="warehouseDetails__description-contact-info">500</p>
                     </div>
                 </div>
             </div>
