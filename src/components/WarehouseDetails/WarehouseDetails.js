@@ -20,7 +20,7 @@ const WarehouseDetails = () => {
             .catch((error) => {
                 console.log(error);
             });
-    });
+    }, []);
 
     return (
         <section className="warehouseDetails">
