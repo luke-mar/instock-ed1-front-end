@@ -2,7 +2,7 @@ import "./SingleWarehouseInventory.scss"
 import edit from '../../assets/Icons/edit-24px.svg'
 import deleteImg from '../../assets/Icons/delete_outline-24px.svg'
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 function SingleWarehouseInventory(props) {
   const [inventoryList, setInventoryList] = useState([]);
@@ -42,8 +42,8 @@ function SingleWarehouseInventory(props) {
                             <div className="row">
                               <p className="inventory-item__quantity">{invent.quantity}</p>                               
                               <div className="inventory-item__icons">
-                                  <img className="delete" src={deleteImg}></img>
-                                  <img src={edit}></img>
+                                  <img className="delete" src={deleteImg} alt="delete icon"></img>
+                                  <img src={edit} alt="edit button"></img>
                               </div>
                               </div>
                         </div>  

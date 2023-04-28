@@ -20,7 +20,7 @@ const WarehouseDetails = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [params.id]);
 
     return (
         <div className="total-container">

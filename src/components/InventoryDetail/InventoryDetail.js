@@ -20,7 +20,7 @@ const InventoryDetail = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [params.id]);
 
     return (
         <section className="inventoryDetail">
