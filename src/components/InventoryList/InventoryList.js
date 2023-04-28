@@ -1,30 +1,31 @@
+
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import sortIcon from "../assets/Icons/sort-24px.svg";
 import chevronIcon from "../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../assets/Icons/edit-24px.svg";
-import DeleteInventory from "../../src/components/DeleteInventory/DeleteInventory";
+import DeleteWarehouse from "../../src/components/DeleteWarehouse/DeleteWarehouse";
 import Modal from "../../src/components/Modal/Modal";
 
 function InventoryList() {
-    const [inventory, setInventory] = useState([]);
+    const [Inventory, setInventories] = useState([]);
     const headers = ["WAREHOUSE", "ADDRESS", "CONTACT NAME", "CONTACT INFORMATION"]
     const [isOpen, setIsOpen] = useState(false)
-    const [inventoryToDelete, setInventoryToDelete]= useState(null);
+    const [warehouseToDelete, setWarehouseToDelete]= useState(null);
 
     function handleClick(warehouse) {
-        console.log(inventory);
+        console.log(warehouse);
         setIsOpen(true);
-        setWarehouseToDelete(inventory);
+        setWarehouseToDelete(warehouse);
     }
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/inventories')
+        axios.get('http://localhost:8080/warehouses')
             .then(response => {
                 if (response.data) {
-                    setInventories(response.data)
+                    setWarehouses(response.data)
                 }
             })
             .catch(error => {
@@ -38,13 +39,13 @@ function InventoryList() {
         <>
             <div className="">
                 <Modal open={isOpen}>
-                    <DeleteInventory warehouseToDelete={inventoryToDelete}
+                    <DeleteWarehouse warehouseToDelete={warehouseToDelete}
                      onclose={() => setIsOpen(false)}>
-                    </DeleteInventory>
+                    </DeleteWarehouse>
                 </Modal>
             </div>
 
-            <section className='inventory'>
+            <section className='warehouses'>
                 <section className='warehouses__header'>
                     <h1 className='warehouses__header-title'>Warehouses</h1>
                     <div className='warehouses__header-search-container'>
@@ -72,35 +73,35 @@ function InventoryList() {
 
 
                         <tbody className='warehouses__list-content-rows'>
-                            {inventory.map((inventory, index) =>
+                            {warehouses.map((warehouses, index) =>
                                 <tr key={index} className='warehouses__list-content-row'>
                                     <td className=''>
                                         <div className=''>WAREHOUSE</div>
                                         <br />
-                                        <a>{inventory.warehouse_name}</a>
+                                        <a>{warehouses.warehouse_name}</a>
                                         <img className='image' src={chevronIcon} alt="chevron icon" />
                                     </td>
                                     <td className=''>
                                         <div>ADDRESS</div>
                                         <br />
-                                        {inventory.address}
+                                        {warehouses.address}
                                     </td>
                                     <td className=''>
                                         <div>CONTACT NAME</div>
                                         <br />
-                                        {inventory.contact_name}
+                                        {warehouses.contact_name}
                                     </td>
                                     <td className=''>
                                         <div>CONTACT INFORMATION</div>
-                                        <br />{inventory.contact_phone}
-                                        <br />{inventory.contact_email}
+                                        <br />{warehouses.contact_phone}
+                                        <br />{warehouses.contact_email}
                                     </td>
                                     <td className=''>
                                         <img
                                             className='image_action'
                                             src={deleteIcon}
                                             alt='delete icon'
-                                            onClick={() => handleClick(inventory)}
+                                            onClick={() => handleClick(warehouses)}
                                         />
                                         <img className='image_action' src={editIcon} alt='edit icon' />
                                     </td>

@@ -1,38 +1,53 @@
-import "./DeleteInventory.scss"
-import close from "../../assets/Icons/close-24px.svg"
+import "./DeleteInventory.scss";
+import close from "../../assets/Icons/close-24px.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const handleClick = e => {
-    e.preventDefault();
-    // setDisplayValue(inputValue);
+function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
+    const navigate = useNavigate();
+    const url = `http://localhost:8080/inventories/`
 
-    // Simple POST request with a JSON body using axios
-    axios.delete('http://localhost:8080/inventories/853bcd65-b0b3-4f9c-844f-8b4133d7df6f', {
+    const handleClick = (e) => {
+        e.preventDefault();
+        // setDisplayValue(inputValue);
+        // Simple DELETE request with a JSON body using axios
+        axios.delete(url + `${inventoryToDelete.id}`)
+            .then((response) => {
+                onclose();
+                // Update the component's state with the response data
+                // setResponseData(response.data);
+                refreshFunction();
+            })
+            .catch((error) => {
+                console.log(error);
+                // Handle any errors that occurred during the request
+            });
+    };
 
-    })
-        .then(response => {
-            // Update the component's state with the response data
-            // setResponseData(response.data);
-            ;
-        })
-        .catch(error => {
-            console.log(error);
-            // Handle any errors that occurred during the request
-        });
-}
 
 
-function DeleteInventory({ onclose }) {
     return (
         <div className="delete-container">
-            <img onClick={onclose} className="delete-container__close-image" src={close} alt="close" />
-            <h2 className="delete-container__title">Delete Television inventory?</h2>
-            <p className="delete-container__text">Please confirm that you'd like to delete the Washington from the list of warehouses. You won't be able to undo this action</p>
+            <img
+                onClick={onclose}
+                className="delete-container__close-image"
+                src={close}
+                alt="close"
+            />
+            <h2 className="delete-container__title">
+                Delete {inventoryToDelete.item_name} inventory item?
+            </h2>
+            <p className="delete-container__text">
+                Please confirm that you'd like to delete the{" "}
+                {inventoryToDelete.item_name} from the inventory list.
+                You won't be able to undo this action.
+            </p>
             <div className="delete-container__buttons">
-                <button onClick={onclose} className="delete-container__button1" >
+                <button onClick={onclose} className="delete-container__button1">
                     Cancel
                 </button>
-                <button className="delete-container__button2"
+                <button
+                    className="delete-container__button2"
                     onClick={handleClick}
                 >
                     Delete
@@ -42,4 +57,4 @@ function DeleteInventory({ onclose }) {
     );
 }
 
-export default DeleteInventory;
+export default Deleteinventory;
