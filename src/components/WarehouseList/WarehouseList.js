@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link} from "react-router-dom";
+import { useNavigate, Link, createSearchParams } from "react-router-dom";
 import axios from "axios";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
+import EditWarehouse from "../EditWarehouse/EditWarehouse";
 import Modal from "../Modal/Modal";
 import "./WarehouseList.scss";
 
@@ -14,6 +15,7 @@ function WarehouseList() {
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
     const [warehouseToEdit, setWarehouseToEdit] = useState(null);
+    const navigate = useNavigate();
 
     function handleLinkClick(event){
         const warehouseId = event.target.id;
@@ -26,9 +28,16 @@ function WarehouseList() {
         setWarehouseToDelete(click);
     }
 
-    function handleEditClick(click) {
-        console.log(click);
-        setWarehouseToEdit(click);
+    const handleEditClick = (clickedItem) => {
+        console.log(clickedItem);
+        setWarehouseToEdit(clickedItem);
+        // navigate("/editwarehouse");
+        navigate({
+            pathname: "/editwarehouse",
+            search: createSearchParams({
+                clickedItem: clickedItem.id
+            })
+        });
     }
 
     useEffect(() => {

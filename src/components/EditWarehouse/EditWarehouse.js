@@ -1,14 +1,17 @@
 import "./EditWarehouse.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
-function EditWarehouse({warehouseToEdit}) {
+function EditWarehouse() {
+//searchParams.get()
     const formRef = useRef();
     const [warehouses, setWarehouses] = useState();
     const navigate = useNavigate();
-
+    const [searchParams] = useSearchParams();
+    const warehouseToEdit = searchParams.get("clickedItem");
+    
     const editWarehouse = (e) => {
         e.preventDefault();
         const warehouse_name = formRef.current.warehouseName.value;
@@ -45,11 +48,11 @@ function EditWarehouse({warehouseToEdit}) {
                     <label className="warehouse__formLabel">
                         Warehouse Name
                     </label>
-                    <input className="warehouse__formInput" type="text" name="warehouseName" placeholder="Warehouse Name">{warehouseToEdit.warehouse_name}</input>
+                    <input className="warehouse__formInput" type="text" name="warehouseName" placeholder="Warehouse Name"></input>
                     <label className="warehouse__formLabel">
                         Street Address
                     </label>
-                    <input className="warehouse__formInput" type="text" name="streetAddress" placeholder="Street Address">{warehouseToEdit.address}</input>
+                    <input className="warehouse__formInput" type="text" name="streetAddress" placeholder="Street Address"></input>
                     <label className="warehouse__formLabel">
                         City
                     </label>
