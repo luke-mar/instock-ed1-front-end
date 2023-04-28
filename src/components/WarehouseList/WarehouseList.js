@@ -11,16 +11,9 @@ import "./WarehouseList.scss";
 
 function WarehouseList() {
     const [warehouses, setWarehouses] = useState([]);
-    // const [warehouse, setWarehouse] = useState({});
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
 
-    // const headers = [
-    //     "WAREHOUSE",
-    //     "ADDRESS",
-    //     "CONTACT NAME",
-    //     "CONTACT INFORMATION",
-    // ];
 
     function handleLinkClick(event){
         const warehouseId = event.target.id;
@@ -148,129 +141,9 @@ function WarehouseList() {
                                         alt="edit icon"
                                     />
                                 </div>
-                                {/* <td className="">
-                                        <div className="">WAREHOUSE</div>
-                                        <br />
-                                        <Link 
-                                        className="warehouses__name" 
-                                        to={`/warehouses/${warehouse.id}`}
-                                        warehouse={warehouse.id}>{warehouse.warehouse_name}</Link>
-                                        <img
-                                            className="image"
-                                            src={chevronIcon}
-                                            alt="chevron icon"
-                                        />
-                                    </td>
-                                    <td className="">
-                                        <div>ADDRESS</div>
-                                        <br />
-                                        {warehouse.address}
-                                    </td>
-                                    <td className="">
-                                        <div>CONTACT NAME</div>
-                                        <br />
-                                        {warehouse.contact_name}
-                                    </td>
-                                    <td className="">
-                                        <div>CONTACT INFORMATION</div>
-                                        <br />
-                                        {warehouse.contact_phone}
-                                        <br />
-                                        {warehouse.contact_email}
-                                    </td>
-                                    <td className="">
-                                        <img
-                                            className="image_action"
-                                            src={deleteIcon}
-                                            alt="delete icon"
-                                            onClick={() =>
-                                                handleClick(warehouse)
-                                            }
-                                        />
-                                        <img
-                                            className="image_action"
-                                            src={editIcon}
-                                            alt="edit icon"
-                                        />
-                                    </td> */}
                             </div>
                         ))}
                     </div>
-
-                    {/* <table className="warehouses__lists-content">
-                        <thead className="warehouses__lists-content-header">
-                            <tr className="warehouses__lists-content-row">
-                                {headers.map((header, index) => (
-                                    <th
-                                        key={index}
-                                        className="warehouse__lists-content-header-sort"
-                                    >
-                                        {header}
-                                        <img
-                                            className="warehouses__list-content-header-row-image"
-                                            src={sortIcon}
-                                            alt="sort icon"
-                                        />
-                                    </th>
-                                ))}
-                                <th className="warehouses__header warehouses__row-cell warehouses__row-actions"></th>
-                            </tr>
-                        </thead> */}
-                    {/* <tbody className="warehouses__list-content-rows"> */}
-                    {/* {warehouses.map((warehouse, index) => (
-                                <tr
-                                    key={warehouse.id}
-                                    className="warehouses__list-content-row"
-                                >
-                                    <td className="">
-                                        <div className="">WAREHOUSE</div>
-                                        <br />
-                                        <Link 
-                                        className="warehouses__name" 
-                                        to={`/warehouses/${warehouse.id}`}
-                                        warehouse={warehouse.id}>{warehouse.warehouse_name}</Link>
-                                        <img
-                                            className="image"
-                                            src={chevronIcon}
-                                            alt="chevron icon"
-                                        />
-                                    </td>
-                                    <td className="">
-                                        <div>ADDRESS</div>
-                                        <br />
-                                        {warehouse.address}
-                                    </td>
-                                    <td className="">
-                                        <div>CONTACT NAME</div>
-                                        <br />
-                                        {warehouse.contact_name}
-                                    </td>
-                                    <td className="">
-                                        <div>CONTACT INFORMATION</div>
-                                        <br />
-                                        {warehouse.contact_phone}
-                                        <br />
-                                        {warehouse.contact_email}
-                                    </td>
-                                    <td className="">
-                                        <img
-                                            className="image_action"
-                                            src={deleteIcon}
-                                            alt="delete icon"
-                                            onClick={() =>
-                                                handleClick(warehouse)
-                                            }
-                                        />
-                                        <img
-                                            className="image_action"
-                                            src={editIcon}
-                                            alt="edit icon"
-                                        />
-                                    </td>
-                                </tr> */}
-                    {/* ))} */}
-                    {/* </tbody> */}
-                    {/* </table> */}
                 </section>
             </section>
         </>

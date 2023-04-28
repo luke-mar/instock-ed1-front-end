@@ -16,7 +16,7 @@ function App() {
                 {/* the above route is to be used when we have the inventory list */}
             </Routes>
             {/* <Footer /> */}
-            <WarehouseDetails />
+            {/* <WarehouseDetails /> */}
         </>
     );
 }
