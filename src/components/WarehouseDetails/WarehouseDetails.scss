@@ -1,0 +1,55 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.total-container{
+    //position: absolute;
+    //padding: 0rem 8rem;
+}
+.warehouseDetails{
+    padding: 1rem;
+
+    &__header-container{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    &__header-location-container{
+        display: flex;
+    }
+    &__header-location{
+        @include m-h1-page-header;
+        &-back-button{
+            background-color: $primary-white;
+            border: none;
+        }
+    }
+    &__header-location-edit-button{
+        background-color: $primary-indigo;
+        color: $primary-white;
+    }
+    &__description-container{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid $secondary-cloud;
+        border-bottom: 1px solid $secondary-cloud;;
+    }
+    &__description-address{
+        margin: 1rem 0rem;
+        padding: 0 .25rem;
+        &-subheader{
+            @include m-h4-table-header;
+            color: $secondary-slate;
+        }
+    }
+    &__contact-container{
+        display: flex;
+        padding: 0 .25rem;
+        justify-content: space-between;
+    }
+    &__description-contact-info{
+        @include m-p2-body-medium;
+    }
+
+}
