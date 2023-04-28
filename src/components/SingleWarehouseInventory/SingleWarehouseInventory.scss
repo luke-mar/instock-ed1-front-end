@@ -16,11 +16,11 @@
     align-items: center;
     width: 100%;
     &__text{
-        width: calc(25% - 2rem);
+        width: calc(100% - 2rem);
     }
     &__last-text{
-        position: absolute;
-        right: 2rem;
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
@@ -28,37 +28,22 @@
     width: 100%;
     border-bottom: 2px solid $secondary-cloud;
     display: flex;
-    //justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
     &__name{
         color: $primary-indigo;
-        width: calc(25% - 2rem);
-    }
-    &__stock-red{
-        color: $supporting-red;
-        border-radius: 4px;
-        text-shadow: 0 0 5px lightpink,0 0 5px lightpink;
-        width: calc(25% - 2rem);
-    }
-    &__stock-blue{
-        color: $supporting-red;
-        border-radius: 4px;
-        text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
-        width: calc(25% - 2rem);
+        width: calc(100% - 2rem);
     }
     &__icons{
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        position: absolute;
-        right: 2rem;
     }
     &__quantity{
-        width: calc(25%);
+        width: calc(100% - 2rem);
     }
     &__category{
-        width: calc(25% - 2rem);
+        width: calc(100% - 2rem);
     }
 }
 
@@ -66,13 +51,13 @@
         color:blue;
         border-radius: 4px;
         text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
-        width: calc(25% - 2rem);
+        width: calc(100% - 2rem);
 }
 .out-of-stock{
         color: $supporting-red;
         border-radius: 4px;
         text-shadow: 0 0 5px pink,0 0 5px pink;
-        width: calc(25% - 2rem);
+        width: calc(100% - 2rem);
 }
 
 .column{
@@ -83,8 +68,7 @@
 }
 .row{
     display: flex;
-
-    width: calc(25% - 2rem);
+    width: calc(100% - 2rem);
     justify-content: space-between;
 }
 
@@ -93,4 +77,5 @@
 }
 a{
     text-decoration: none;
+    width: 100%;
 }

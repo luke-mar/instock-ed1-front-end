@@ -39,13 +39,13 @@ function SingleWarehouseInventory(props) {
                             <p className="inventory-item__category">{invent.category}</p>
                             <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
                             <div className="row">
-                                <p className="inventory-item__quantity">{invent.quantity}</p>
-                                <div className="inventory-item__icons">
-                                    <img className="delete" src={deleteImg}></img>
-                                    <img src={edit}></img>
-                                </div>
-                            </div>  
-                        </div>
+                              <p className="inventory-item__quantity">{invent.quantity}</p>                               
+                              <div className="inventory-item__icons">
+                                  <img className="delete" src={deleteImg}></img>
+                                  <img src={edit}></img>
+                              </div>
+                              </div>
+                        </div>  
                         </Link>
                     );
                 })
@@ -56,5 +56,3 @@ function SingleWarehouseInventory(props) {
 }
 
 export default SingleWarehouseInventory;
-
-// inventoryList.filter(item => item.warehouse_name === 'Manhattan').map (invent =>{
