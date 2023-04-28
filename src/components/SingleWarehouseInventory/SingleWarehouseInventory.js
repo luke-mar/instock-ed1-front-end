@@ -4,7 +4,6 @@ import deleteImg from '../../assets/Icons/delete_outline-24px.svg'
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
-
 function SingleWarehouseInventory(props) {
   const [inventoryList, setInventoryList] = useState([]);
   
@@ -33,9 +32,11 @@ function SingleWarehouseInventory(props) {
             {
                 inventoryList.map (invent =>{
                     return (
-                        <Link to={`/inventories/${invent.id}`}>
+                        
                         <div className="inventory-item">
+                            <Link to={`/inventories/${invent.id}`}>
                             <p className="inventory-item__name">{invent.item_name} </p>
+                            </Link>
                             <p className="inventory-item__category">{invent.category}</p>
                             <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
                             <div className="row">
@@ -46,7 +47,7 @@ function SingleWarehouseInventory(props) {
                               </div>
                               </div>
                         </div>  
-                        </Link>
+                        
                     );
                 })
             }
