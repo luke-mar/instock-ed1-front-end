@@ -2,6 +2,10 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+.total-container{
+    //position: absolute;
+    //padding: 0rem 8rem;
+}
 .warehouseDetails{
     padding: 1rem;
 

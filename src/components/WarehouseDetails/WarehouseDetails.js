@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit-24px.svg";
+import SingleWarehouseInventory from "../SingleWarehouseInventory/SingleWarehouseInventory";
 
 const WarehouseDetails = () => {
     // const {warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = warehouse;
@@ -23,6 +24,7 @@ const WarehouseDetails = () => {
     });
 
     return (
+        <div className="total-container">
         <section className="warehouseDetails">
             <div className="warehouseDetails__header-container">
                 <div className="warehouseDetails__header-location-container">
@@ -56,6 +58,8 @@ const WarehouseDetails = () => {
             </div>
             
         </section>
+        <SingleWarehouseInventory id={params.id}/>
+        </div>
     );
 };
 

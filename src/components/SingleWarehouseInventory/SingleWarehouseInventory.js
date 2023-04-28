@@ -2,14 +2,14 @@ import "./SingleWarehouseInventory.scss"
 import edit from '../../assets/Icons/edit-24px.svg'
 import deleteImg from '../../assets/Icons/delete_outline-24px.svg'
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
 function SingleWarehouseInventory(props) {
   const [inventoryList, setInventoryList] = useState([]);
   
   useEffect(() => {
-    axios.get(`http://localhost:8080/inventories`)
+    axios.get(`http://localhost:8080/warehouses/${props.id}/inventories`)
       .then((response) => {
         if(response.data){
         setInventoryList(response.data);
@@ -31,8 +31,9 @@ function SingleWarehouseInventory(props) {
         
         <div className="column">
             {
-                inventoryList.filter(item => item.warehouse_name === 'Manhattan').map (invent =>{
+                inventoryList.map (invent =>{
                     return (
+                        <Link to={`/inventories/${invent.id}`}>
                         <div className="inventory-item">
                             <p className="inventory-item__name">{invent.item_name} </p>
                             <p className="inventory-item__category">{invent.category}</p>
@@ -45,6 +46,7 @@ function SingleWarehouseInventory(props) {
                                 </div>
                             </div>  
                         </div>
+                        </Link>
                     );
                 })
             }
@@ -54,3 +56,5 @@ function SingleWarehouseInventory(props) {
 }
 
 export default SingleWarehouseInventory;
+
+// inventoryList.filter(item => item.warehouse_name === 'Manhattan').map (invent =>{
