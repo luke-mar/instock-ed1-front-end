@@ -1,19 +1,22 @@
 import "./App.css";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import WarehouseList from "./components/WarehouseList";
-import Header from "./components/Header";
-import TestDelete from "./components/TesteDelete/TestDelete";
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import Warehouses from "./pages/Warehouses/Warehouses";
 
 function App() {
     return (
         <>
             <Header />
             <Routes>
-              <Route path="/warehouses" element={<WarehouseList />} />
+                <Route path="/" element={<Warehouses />} />
+                <Route path="/warehouses" element={<Warehouses />} />
+                <Route path="/warehouses/:id" element={<WarehouseDetails />} />
+                {/* <Route path="/inventories" element={<InventoryList />} /> */}
+                {/* the above route is to be used when we have the inventory list */}
             </Routes>
-            {/* <DeleteWarehouses/> */}
+            {/* <Footer /> */}
+            {/* <WarehouseDetails /> */}
         </>
     );
 }
