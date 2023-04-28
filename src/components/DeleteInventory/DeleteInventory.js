@@ -1,9 +1,9 @@
-import "./DeleteWarehouse.scss";
+import "./DeleteInventory.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function DeleteWarehouse({ onclose, inventoryToDelete, refreshFunction }) {
+function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
     const navigate = useNavigate();
     const url = `http://localhost:8080/inventories/`
 
@@ -35,11 +35,11 @@ function DeleteWarehouse({ onclose, inventoryToDelete, refreshFunction }) {
                 alt="close"
             />
             <h2 className="delete-container__title">
-                Delete {warehouseToDelete.warehouse_name} warehouse?
+                Delete {inventoryToDelete.item_name} inventory item?
             </h2>
             <p className="delete-container__text">
                 Please confirm that you'd like to delete the{" "}
-                {warehouseToDelete.warehouse_name} from the list of warehouses.
+                {inventoryToDelete.item_name} from the inventory list.
                 You won't be able to undo this action.
             </p>
             <div className="delete-container__buttons">
@@ -57,4 +57,4 @@ function DeleteWarehouse({ onclose, inventoryToDelete, refreshFunction }) {
     );
 }
 
-export default DeleteWarehouse;
+export default Deleteinventory;

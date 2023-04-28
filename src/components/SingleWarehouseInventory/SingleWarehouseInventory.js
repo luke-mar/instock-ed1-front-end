@@ -4,9 +4,13 @@ import deleteImg from '../../assets/Icons/delete_outline-24px.svg'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import Modal from "../Modal/Modal";
+import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
+
 function SingleWarehouseInventory(props) {
   const [inventoryList, setInventoryList] = useState([]);
-  
+  const [deleteCount, setDeleteCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     axios.get(`http://localhost:8080/warehouses/${props.id}/inventories`)
       .then((response) => {
@@ -14,10 +18,30 @@ function SingleWarehouseInventory(props) {
         setInventoryList(response.data);
         }
       });
-    }, []);
-    console.log(inventoryList);
+    }, [deleteCount]);
+
+    function refreshFunction() {
+      setDeleteCount(deleteCount + 1);
+    }
+    const [inventoryToDelete, setInventoryToDelete] = useState(null);
+    function handleClick(click) {
+      console.log(click);
+      setIsOpen(true);
+      setInventoryToDelete(click);
+    }
+    
     return (
         <>
+          <div className="">
+                <Modal open={isOpen}>
+                    <DeleteInventory
+                        inventoryToDelete={inventoryToDelete}
+                        onclose={() => setIsOpen(false)}
+                        refreshFunction={refreshFunction}
+                    ></DeleteInventory>
+                </Modal>
+            </div>
+
           <div className="inventory-titles">
             <p className="inventory-titles__text">INVENTORY ITEM</p>
             <p className="inventory-titles__text">CATEGORY</p>
@@ -44,6 +68,10 @@ function SingleWarehouseInventory(props) {
                               <div className="inventory-item__icons">
                                   <img className="delete" src={deleteImg} alt="delete icon"></img>
                                   <img src={edit} alt="edit button"></img>
+
+                                  <img className="delete" src={deleteImg} onClick={() => handleClick(invent)}></img>
+                                  <img src={edit}></img>
+
                               </div>
                               </div>
                         </div>  

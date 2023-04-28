@@ -74,6 +74,10 @@
 
 .delete{
     padding-right: 1rem;
+    &:hover{
+        cursor:pointer;
+    }
+
 }
 a{
     text-decoration: none;
