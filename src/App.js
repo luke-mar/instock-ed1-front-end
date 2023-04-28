@@ -1,23 +1,21 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import WarehouseList from "./components/WarehouseList";
-import Header from "./components/Header";
-import TestDelete from "./components/TesteDelete/TestDelete";
+import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
-
+import Warehouses from "./pages/Warehouses/Warehouses";
 
 function App() {
     return (
         <>
-
             <Header />
             <Routes>
-              <Route path="/warehouses" element={<WarehouseList />} />
+                <Route path="/" element={<Warehouses />} />
+                <Route path="/warehouses" element={<Warehouses />} />
+                {/* <Route path="/inventories" element={<InventoryList />} /> */}
+                {/* the above route is to be used when we have the inventory list */}
             </Routes>
-            {/* <DeleteWarehouses/> */}
-            <TestDelete />
+            {/* <Footer /> */}
             <WarehouseDetails />
-
         </>
     );
 }
