@@ -13,7 +13,7 @@ function WarehouseList() {
     const [warehouses, setWarehouses] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
-
+    const [warehouseToEdit, setWarehouseToEdit] = useState(null);
 
     function handleLinkClick(event){
         const warehouseId = event.target.id;
@@ -24,6 +24,11 @@ function WarehouseList() {
         console.log(click);
         setIsOpen(true);
         setWarehouseToDelete(click);
+    }
+
+    function handleEditClick(click) {
+        console.log(click);
+        setWarehouseToEdit(click);
     }
 
     useEffect(() => {
@@ -139,6 +144,7 @@ function WarehouseList() {
                                         className="image_action"
                                         src={editIcon}
                                         alt="edit icon"
+                                        onClick={() => handleEditClick(warehouseData)}
                                     />
                                 </div>
                             </div>
