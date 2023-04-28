@@ -7,7 +7,6 @@ import edit from "../../assets/Icons/edit-24px.svg";
 import SingleWarehouseInventory from "../SingleWarehouseInventory/SingleWarehouseInventory";
 
 const WarehouseDetails = () => {
-    // const {warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email } = warehouse;
     const [warehouse, setWarehouse] = useState([]);
     const params = useParams();
 
@@ -21,7 +20,7 @@ const WarehouseDetails = () => {
             .catch((error) => {
                 console.log(error);
             });
-    },[]);
+    }, []);
 
     return (
         <div className="total-container">

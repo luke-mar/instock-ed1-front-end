@@ -1,0 +1,41 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse {
+    background-color: $primary-white;
+    &__h1Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: $border;
+
+    }
+    &__h1 {
+        padding-bottom: 24px;
+        padding-top: 24px;
+    }
+    &__header {
+        @include m-h2-subheader;
+        padding: 16px 16px 24px 16px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__formLabel {
+        @include m-h3-labels-links-buttons;
+        padding-bottom: 4px;
+    }
+    &__formInput {
+        @include m-input;
+        margin-bottom: 16px;
+        // margin-bottom: 16px;
+    }
+    &__formWarehouseDetails {
+        padding: 16px;
+    }
+    &__formContactDetails {
+        padding: 16px;
+    }
+}
