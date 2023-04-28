@@ -1,0 +1,20 @@
+
+
+
+
+.inventoryDetail{
+
+    &__header-location-container{
+        display: flex;
+    }
+
+    &__header-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    &__description-container{
+        display: flex;
+    }
+}

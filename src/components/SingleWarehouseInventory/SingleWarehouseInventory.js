@@ -35,7 +35,7 @@ function SingleWarehouseInventory(props) {
                     return (
                         <Link to={`/inventories/${invent.id}`}>
                         <div className="inventory-item">
-                            <p className="inventory-item__name">{invent.item_name} </p>
+                            <p className="inventory-item__name">{invent.item_name} </p> 
                             <p className="inventory-item__category">{invent.category}</p>
                             <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
                             <div className="row">
