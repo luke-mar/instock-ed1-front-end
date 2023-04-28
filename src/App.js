@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
 import Footer from "./components/Footer/Footer";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
+
 function App() {
     return (
         <>
@@ -18,8 +20,6 @@ function App() {
                 </Routes>
             </div>
             <Footer />
-            {/* <Footer /> */}
-            {/* <WarehouseDetails /> */}
         </>
     );
 }
