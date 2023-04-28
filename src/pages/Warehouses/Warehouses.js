@@ -1,6 +1,6 @@
 import { Route, Routes, } from "react-router-dom";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
-import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
+// import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails";
 
 
 const Warehouses = () => {
@@ -10,10 +10,10 @@ const Warehouses = () => {
             <Routes>
                 <Route path="/" element={<WarehouseList />} />
                 <Route path="/warehouses" element={<WarehouseList />} />
-                <Route
-                    path="/warehouses/:idFromParams"
+                {/* <Route
+                    path="/warehouses/:id"
                     element={<WarehouseDetails />}
-                />
+                /> */}
             </Routes>
         </>
     );

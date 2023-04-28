@@ -11,6 +11,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Warehouses />} />
                 <Route path="/warehouses" element={<Warehouses />} />
+                <Route path="/warehouses/:id" element={<WarehouseDetails />} />
                 {/* <Route path="/inventories" element={<InventoryList />} /> */}
                 {/* the above route is to be used when we have the inventory list */}
             </Routes>
