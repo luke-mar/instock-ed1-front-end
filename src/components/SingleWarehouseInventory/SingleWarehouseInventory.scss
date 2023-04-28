@@ -1,0 +1,93 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'titillium';
+}
+.inventory-titles{
+    background-color: $background-grey;
+    padding: 1rem 2rem;
+    color: $secondary-slate;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &__text{
+        width: calc(25% - 2rem);
+    }
+    &__last-text{
+        position: absolute;
+        right: 2rem;
+    }
+}
+
+.inventory-item{
+    width: 100%;
+    border-bottom: 2px solid $secondary-cloud;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    &__name{
+        color: $primary-indigo;
+        width: calc(25% - 2rem);
+    }
+    &__stock-red{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightpink,0 0 5px lightpink;
+        width: calc(25% - 2rem);
+    }
+    &__stock-blue{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
+        width: calc(25% - 2rem);
+    }
+    &__icons{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        position: absolute;
+        right: 2rem;
+    }
+    &__quantity{
+        width: calc(25%);
+    }
+    &__category{
+        width: calc(25% - 2rem);
+    }
+}
+
+.in-stock{
+        color:blue;
+        border-radius: 4px;
+        text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
+        width: calc(25% - 2rem);
+}
+.out-of-stock{
+        color: $supporting-red;
+        border-radius: 4px;
+        text-shadow: 0 0 5px pink,0 0 5px pink;
+        width: calc(25% - 2rem);
+}
+
+.column{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.row{
+    display: flex;
+
+    width: calc(25% - 2rem);
+    justify-content: space-between;
+}
+
+.delete{
+    padding-right: 1rem;
+}

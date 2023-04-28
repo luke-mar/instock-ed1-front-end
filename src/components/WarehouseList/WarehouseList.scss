@@ -1,0 +1,40 @@
+@use "/src/styles/partials/globals.scss" as *;
+@use "/src/styles/partials/variables.scss" as *;
+@use "/src/styles/partials/mixins.scss" as *;
+
+.warehouses__lists{
+    &-header{
+        display: flex;
+        justify-content: space-evenly;
+        
+        &-column-title{
+            display: flex;
+            width: 17%;
+        }
+    }
+    
+}
+
+.warehouses__list{
+    &-content-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        &-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 17%;
+        }
+    }
+
+}
+.phone-email{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.warehouses__name{
+    display: flex;
+}
