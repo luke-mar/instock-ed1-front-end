@@ -2,13 +2,17 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit-24px.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./InventoryDetail.scss";
-
 
 const InventoryDetail = () => {
     const [inventory, setInventory] = useState([]);
     const params = useParams();
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate(-1);
+    };
 
     useEffect(() => {
         axios
@@ -24,54 +28,68 @@ const InventoryDetail = () => {
 
     return (
         <section className="inventoryDetail">
-            <div className="inventoryDetail__header-container">
-                <div className="inventoryDetail__header-location-container">
+            <div className="inventoryDetail__header">
+                <div className="inventoryDetail__header-item-container">
                     <button className="inventoryDetail__header-back-button">
-                        <img src={backArrow} alt="" />
+                        <img onClick={handleBackClick} src={backArrow} alt="" />
                     </button>
                     <h1 className="inventoryDetail__item">
                         {inventory.item_name}
                     </h1>
                 </div>
                 <div className="inventoryDetail__header-edit-button-container">
-                    <button className="warehouseDetails__header-location-edit-button">
+                    <button className="inventoryDetail__header-edit-button">
                         {" "}
-                        <img src={edit} alt="edit icon" />
-                        Edit
+                        <img
+                            className="inventoryDetail__header-edit-icon"
+                            src={edit}
+                            alt="edit icon"
+                        />
+                        <h3 className="inventoryDetail__header-edit-content">Edit</h3>
                     </button>
                 </div>
             </div>
-            <div className="inventoryDetail__description-container">
-                <div className="inventoryDetail__description-address">
-                    <h4 className="inventoryDetail__subheader">
-                        ITEM DESCRIPTION:
-                    </h4>
-                    <p className="inventoryDetail__description">
-                        {inventory.description}
-                    </p>
-                    <h4 className="inventoryDetail__subheader">CATEGORY:</h4>
-                    <p className="inventoryDetail__category">
-                        {inventory.category}
-                    </p>
-                </div>
-                <div className="warehouseDetails__contact-container">
-                    <div className="warehouseDetails__contact-container-info">
-                        <h4 className="warehouseDetails__subheader">STATUS</h4>
-                        <p className="warehouseDetails__status">
-                            {inventory.status}
-                        </p>
-                        <h4 className="warehouseDetails__subheader">
-                            WAREHOUSE:
+            <div className="inventoryDetail__description">
+                <div className="inventoryDetail__description-container">
+                    <div className="inventoryDetail__description-container-category">
+                        <h4 className="inventoryDetail__subheader">
+                            ITEM DESCRIPTION:
                         </h4>
-                        <p className="warehouseDetails__warehouse-name">
-                            {inventory.warehouse_name}
+                        <p className="inventoryDetail__content">
+                            {inventory.description}
                         </p>
                     </div>
-                    <div className="warehouseDetails__contact-container-info">
-                        <h4 className="warehouseDetails__subheader">
-                            QUANTITY
+                    <div className="inventoryDetail__description-container-category">
+                        <h4 className="inventoryDetail__subheader">
+                            CATEGORY:
                         </h4>
-                        <p className="warehouseDetails__quantity">
+                        <p className="inventoryDetail__content">
+                            {inventory.category}
+                        </p>
+                    </div>
+                </div>
+                <div className="inventoryDetail__description-stock">
+                    <div className="inventoryDetail__description-stock-status-container">
+                        <div className="inventoryDetail__description-container-category">
+                            <h4 className="inventoryDetail__subheader">
+                                STATUS
+                            </h4>
+                            <p className="inventoryDetail__content" id={inventory.status.replace(/\s+/g, '-').toLowerCase()}>
+                                {inventory.status}
+                            </p>
+                        </div>
+                        <div className="inventoryDetail__description-container-category">
+                            <h4 className="inventoryDetail__subheader">
+                                WAREHOUSE:
+                            </h4>
+                            <p className="inventoryDetail__content">
+                                {inventory.warehouse_name}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="inventoryDetail__description-stock-container-quantity">
+                        <h4 className="inventoryDetail__subheader">QUANTITY</h4>
+                        <p className="inventoryDetail__content">
                             {inventory.quantity}
                         </p>
                     </div>
