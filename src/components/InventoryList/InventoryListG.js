@@ -26,7 +26,6 @@ function InventoryList() {
 
     }
 
-
     function handleLinkClick(event) {
         const inventoryId = event.target.id;
         // console.log(inventoryId);
@@ -91,10 +90,10 @@ function InventoryList() {
                             <tr className='inventories__lists-row'>{headers.map((header) =>
                                 <th className='inventories__lists-cell'>
                                     {header}
-                                    <img className='warehouse__lists-icon' src={sortIcon} alt="sort icon" />
+                                    <img className='inventories__lists-icon' src={sortIcon} alt="sort icon" />
                                 </th>)
                             }
-                                <th className='inventories__lists-cell warehouse__lists-actions'>ACTIONS</th>
+                                <th className='inventories__lists-cell inventories__lists-actions'>ACTIONS</th>
                             </tr>
                         </thead>
 
@@ -108,7 +107,7 @@ function InventoryList() {
                                         <Link className='inventories__lists--text-underline'>
                                             {inventory.item_name}
                                         </Link>
-                                        <img className='warehouse__lists-icon-chevron' src={chevronIcon} alt="chevron icon" />
+                                        <img className='inventories__lists-icon-chevron' src={chevronIcon} alt="chevron icon" />
                                     </td>
                                     <td className='inventories__lists-cell'>
                                         <div className='inventories__lists-title'>CATEGORY</div>
@@ -139,7 +138,7 @@ function InventoryList() {
                                             className='inventories__lists-actions-icons'
                                             src={editIcon}
                                             alt='edit icon'
-                                        // onClick={() => handleClickEdit(inventories)}
+                                        onClick={() => handleClick(inventories)}
                                         />
                                     </td>
                                 </tr>

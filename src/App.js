@@ -8,6 +8,7 @@ import InventoryList from "./components/InventoryList/InventoryListG";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import WarehouseList from "./components/WarehouseList/WarehouseListG";
 import AddInventory from "./components/AddInventory/AddInventory";
+import EditInventory from "./components/EditInventory/EditInventory";
 
 function App() {
     return (
@@ -22,7 +23,7 @@ function App() {
                     <Route path="/inventories" element={<InventoryList />} />
                     <Route path="/inventories/:id" element={<InventoryList />} />
                     <Route path="/addinventory" element={<AddInventory />} />
-                    {/* <Route path="/editinventory" element={<EditInventory />} /> */}
+                    <Route path="/editinventory" element={<EditInventory />} />
                 </Routes>
             </div>
             <Footer />
