@@ -1,4 +1,4 @@
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
@@ -9,7 +9,7 @@ import DeleteInventory from "../DeleteInventory/DeleteInventory";
 import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
 
-function inventoryList() {
+function InventoryList() {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoryToDelete, setInventoryToDelete] = useState(null);
@@ -74,9 +74,11 @@ function inventoryList() {
                                 placeholder="Search ..."
                             />
                         </div>
-                        <button className="inventories__header-button">
-                            + Add New inventory
-                        </button>
+                        <Link to={"/inventories"}>
+                            <button className="inventories__header-button">
+                                + Add New inventory
+                            </button>
+                        </Link>
                     </div>
                 </section>
 
@@ -158,4 +160,4 @@ function inventoryList() {
     );
 }
 
-export default inventoryList;
+export default InventoryList;
