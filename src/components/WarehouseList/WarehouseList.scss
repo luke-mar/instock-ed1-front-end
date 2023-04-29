@@ -2,39 +2,248 @@
 @use "/src/styles/partials/variables.scss" as *;
 @use "/src/styles/partials/mixins.scss" as *;
 
-.warehouses__lists{
-    &-header{
-        display: flex;
-        justify-content: space-evenly;
+.warehouses {
+
+    @include tablet {
+        margin: 1rem;
+        border-radius: 9px;
+        background-color: white;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    }
+
+    &__header {
+        font-size: 1.75rem;
+
+        * {
+            display: block;
+            width: 80%;
+        }
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 1rem;
+
+            * {
+                width: 50%;
+            }
+        }
+
+        &-search-container {
+
+
+            * {
+                margin: auto;
+            }
+
+            @include tablet {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &-search{
+            @include tablet{
+                width: 70%
+            }
+        }
+
+        &-image {
+            max-width: max-content;
+            left: 40%;
+            position: relative;
+            top: 1.5rem;
+            height: 2rem;
+            right: -.5rem;
+
+            @include tablet {
+                left: 30%;
+                top: 1.5rem;
+            }
+        }
+
+        &-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: 1px solid;
+            padding: 1rem 1.5rem;
+            border-radius: 2rem;
+            position: relative;
+            top: -1.2rem;
+
+
+            @include tablet {
+                width: 75%;
+                top: -1.25rem;
+                font-size: 16px;
+
+                &:focus {
+                    outline: 1px solid rgb(64, 64, 255);
+                }
+            }
+        }
+
+        &-button {
+            display: block;
+            width: 100%;
+            background-color: blue;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            padding: 1rem;
+
+            @include tablet {
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: black;
+                }
+            }
+        }
+    }
+
+    &__lists {
+
+        @include tablet {
+            border-collapse: collapse;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        &-headers {
+            display: none;
+
+            @include tablet {
+                background-color: $background-grey;
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+
+        &-body {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &-row {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            display: flex;
+            transition: all 0.1s;
+            flex-wrap: wrap;
+
+            &:hover {
+                background-color: rgb(231, 231, 255);
+            }
+        }
+
+        &-cell {
+            width: 50%;
+            flex-wrap: wrap;
+
+            @include tablet {
+                width: 20%;
+                padding: 8px 0;
+                display: flex;
+                text-align: left;
+                align-items: center;
+            }
+        }
+
+        &-icon {
+            @include tablet {
+                height: 16 px;
+                margin-left: 0.5rem;
+            }
+
+            &-chevron{
+            }
+        }
         
-        &-column-title{
+        &--text-underline {
+            font-weight: 600;
+            color: blue;
+
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        &-title {
+            font-size: 10px;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            padding: 0;
+            color: grey;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &-actions{
             display: flex;
-            width: 17%;
+            width: 100%;
+            justify-content: space-between;
+
+            @include tablet{
+                text-align: center;  
+                padding-left: 0.5rem
+            }
+
+            &-icons{
+                height: 32px;
+                margin-right: 1rem;
+                justify-content: flex-end;
+                
+            }
         }
     }
-    
 }
 
-.warehouses__list{
-    &-content-row{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        &-container{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 17%;
-        }
-    }
+// .warehouses__lists{
+//     &-header{
+//         display: flex;
+//         justify-content: space-evenly;
 
-}
-.phone-email{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
+//         &-column-title{
+//             display: flex;
+//             width: 17%;
+//         }
+//     }
 
-.warehouses__name{
-    display: flex;
-}
+// }
+
+// .warehouses__list{
+//     &-content-row{
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-evenly;
+//         &-container{
+//             display: flex;
+//             flex-direction: row;
+//             align-items: center;
+//             width: 17%;
+//         }
+//     }
+
+// }
+// .phone-email{
+//     display: flex;
+//     flex-direction: column;
+//     align-items: start;
+// }
+
+// .warehouses__name{
+//     display: flex;
+// }
