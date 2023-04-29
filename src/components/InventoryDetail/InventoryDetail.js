@@ -1,5 +1,5 @@
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
-import edit from "../../assets/Icons/edit-24px.svg";
+import edit from "../../assets/Icons/edit2-24px.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
