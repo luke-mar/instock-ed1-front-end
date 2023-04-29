@@ -19,7 +19,7 @@ function SingleWarehouseInventory(props) {
         }
       });
     }, [deleteCount]);
-
+  const arrow = '  >';
     function refreshFunction() {
       setDeleteCount(deleteCount + 1);
     }
@@ -56,20 +56,30 @@ function SingleWarehouseInventory(props) {
             {
                 inventoryList.map (invent =>{
                     return (
-                        
                         <div className="inventory-item">
-                            <Link to={`/inventories/${invent.id}`}>
-                            <p className="inventory-item__name">{invent.item_name} </p>
-                            </Link>
-                            <p className="inventory-item__category">{invent.category}</p>
-                            <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
-                            <div className="row">
-                              <p className="inventory-item__quantity">{invent.quantity}</p>                               
-                              <div className="inventory-item__icons">
-                                  <img className="delete" src={deleteImg} onClick={() => handleClick(invent)}></img>
-                                  <img src={edit}></img>
+                            <div className="card-column">
+                              <p className="mobile-only">INVENTORY ITEM</p>
+                              <Link to={`/inventories/${invent.id}`}>
+                              <p className="inventory-item__name">{invent.item_name} {arrow}</p>
+                              </Link>
+                              <p className="mobile-only">CATEGORY</p>
+                              <p className="inventory-item__category">{invent.category}</p>
+                              <img className="delete mobile-only-img" src={deleteImg} onClick={() => handleClick(invent)}></img>
+                            </div>
+
+                            <div className="card-column">
+                              <p className="mobile-only">STATUS</p>
+                              <p className={invent.status.replace(/\s+/g, '-').toLowerCase()}>{invent.status}</p>
+                              <p className="mobile-only">QTY</p>
+                              <div className="row">
+                                <p className="inventory-item__quantity">{invent.quantity}</p>                               
+                                <div className="inventory-item__icons">
+                                    <img className="delete" src={deleteImg} onClick={() => handleClick(invent)}></img>
+                                    <img src={edit}></img>
+                                </div>
                               </div>
-                              </div>
+                              <img className="mobile-only-img2" src={edit}></img>
+                            </div>
                         </div>  
                         
                     );
