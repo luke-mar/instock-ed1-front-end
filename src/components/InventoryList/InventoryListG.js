@@ -29,7 +29,9 @@ function InventoryList() {
     function handleLinkClick(event) {
         const inventoryId = event.target.id;
         // console.log(inventoryId);
+        // does this need a prevent default?
     }
+
 
     function handleClick(click) {
         // console.log(click);
@@ -104,9 +106,18 @@ function InventoryList() {
                                     <td className='inventories__lists-cell inventories__lists--text-underline'>
                                         <div className='inventories__lists-title'>INVENTORY ITEM</div>
                                         <br />
-                                        <Link className='inventories__lists--text-underline'>
-                                            {inventory.item_name}
+                                        <Link
+                                        // key={inventory.id}
+                                        className=""
+                                        to={`/inventories/:${inventory.id}`}
+                                        // inventory={inventory}
+                                    onClick={handleLinkClick}
+                                    >
+                                           {inventory.item_name}
                                         </Link>
+                                        {/* <Link className='inventories__lists--text-underline'>
+                                            {inventory.item_name}
+                                        </Link> */}
                                         <img className='inventories__lists-icon-chevron' src={chevronIcon} alt="chevron icon" />
                                     </td>
                                     <td className='inventories__lists-cell'>

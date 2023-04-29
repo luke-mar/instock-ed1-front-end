@@ -103,7 +103,18 @@ function WarehouseList() {
                                     <td className='warehouses__lists-cell warehouses__lists--text-underline'>
                                         <div className='warehouses__lists-title'>WAREHOUSE</div>
                                         <br />
-                                        <Link className='warehouses__lists--text-underline'>{warehouse.warehouse_name}</Link>
+                                        <Link
+                                        // key={warehouse.id}
+                                        className=""
+                                        to={`/warehouses/:${warehouse.id}`}
+                                        // warehouse={warehouse}
+                                        onClick={handleLinkClick}
+                                    >
+                                             {warehouse.warehouse_name}
+                                        </Link>
+                                        {/* <Link className='warehouses__lists--text-underline'>
+                                            {warehouse.warehouse_name}
+                                            </Link> */}
                                         <img className='warehouse__lists-icon-chevron' src={chevronIcon} alt="chevron icon" />
                                     </td>
                                     <td className='warehouses__lists-cell'>
