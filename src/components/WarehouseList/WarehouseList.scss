@@ -138,6 +138,7 @@
             display: flex;
             transition: all 0.1s;
             flex-wrap: wrap;
+            border-bottom: 1px solid black;
 
             &:hover {
                 background-color: rgb(231, 231, 255);

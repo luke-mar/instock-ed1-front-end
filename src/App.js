@@ -4,9 +4,10 @@ import Header from "./components/Header/Header";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import Warehouses from "./pages/Warehouses/Warehouses";
 import Footer from "./components/Footer/Footer";
-import InventoryList from "./components/InventoryList/InventoryList";
+import InventoryList from "./components/InventoryList/InventoryListG";
 import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 import WarehouseList from "./components/WarehouseList/WarehouseListG";
+import AddInventory from "./components/AddInventory/AddInventory";
 
 function App() {
     return (
@@ -20,8 +21,8 @@ function App() {
                     <Route path="/addwarehouse" element={<AddWarehouse />} />
                     <Route path="/inventories" element={<InventoryList />} />
                     <Route path="/inventories/:id" element={<InventoryList />} />
-                    {/* <Route path="/addinventory" element={<AddInventory />} />
-                    <Route path="/editinventory" element={<EditInventory />} /> */}
+                    <Route path="/addinventory" element={<AddInventory />} />
+                    {/* <Route path="/editinventory" element={<EditInventory />} /> */}
                 </Routes>
             </div>
             <Footer />
