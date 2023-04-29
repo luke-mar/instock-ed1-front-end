@@ -1,118 +1,161 @@
+import {useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import sortIcon from "../../assets/Icons/sort-24px.svg";
+import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
+import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
+import editIcon from "../../assets/Icons/edit-24px.svg";
+import DeleteInventory from "../DeleteInventory/DeleteInventory";
+import Modal from "../Modal/Modal";
+import "./InventoryList.scss";
 
-import { useState, useEffect } from 'react';
-import axios from 'axios'
-import sortIcon from "../assets/Icons/sort-24px.svg";
-import chevronIcon from "../assets/Icons/chevron_right-24px.svg";
-import deleteIcon from "../assets/Icons/delete_outline-24px.svg";
-import editIcon from "../assets/Icons/edit-24px.svg";
-import DeleteWarehouse from "../../src/components/DeleteWarehouse/DeleteWarehouse";
-import Modal from "../../src/components/Modal/Modal";
+function inventoryList() {
+    const [inventories, setInventories] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [inventoryToDelete, setInventoryToDelete] = useState(null);
+    const [deleteCount, setDeleteCount] = useState(0);
 
-function InventoryList() {
-    const [Inventory, setInventories] = useState([]);
-    const headers = ["WAREHOUSE", "ADDRESS", "CONTACT NAME", "CONTACT INFORMATION"]
-    const [isOpen, setIsOpen] = useState(false)
-    const [warehouseToDelete, setWarehouseToDelete]= useState(null);
 
-    function handleClick(warehouse) {
-        console.log(warehouse);
-        setIsOpen(true);
-        setWarehouseToDelete(warehouse);
+    function refreshFunction() {
+        setDeleteCount(deleteCount + 1);
+        console.log("updated deleteCount to", deleteCount);
     }
 
+    function handleLinkClick(event) {
+        const inventoryId = event.target.id;
+        console.log(inventoryId);
+    }
+
+    function handleClick(click) {
+        console.log(click);
+        setIsOpen(true);
+        setInventoryToDelete(click);
+    }
 
     useEffect(() => {
-        axios.get('http://localhost:8080/warehouses')
-            .then(response => {
+        axios
+            .get("http://localhost:8080/inventories")
+            .then((response) => {
+                console.log("got a response from axios", response)
                 if (response.data) {
-                    setWarehouses(response.data)
+                    setInventories(response.data);
                 }
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
-            })
-    }
-        , [])
-
+            });
+    }, [deleteCount]);
 
     return (
         <>
             <div className="">
                 <Modal open={isOpen}>
-                    <DeleteWarehouse warehouseToDelete={warehouseToDelete}
-                     onclose={() => setIsOpen(false)}>
-                    </DeleteWarehouse>
+                    <DeleteInventory
+                        inventoryToDelete={inventoryToDelete}
+                        onClose={() => setIsOpen(false)}
+                        refreshFunction={refreshFunction}
+                    ></DeleteInventory>
                 </Modal>
             </div>
 
-            <section className='warehouses'>
-                <section className='warehouses__header'>
-                    <h1 className='warehouses__header-title'>Warehouses</h1>
-                    <div className='warehouses__header-search-container'>
-                        <div className='warehouses__header-search'>
-                            <img className='warehouses__header-image' src='../assets/Icons/search-24px.svg' alt="search icon" />
-                            <input type='text' className='warehouses__header-input' placeholder='Search ...' />
+            <section className="inventories">
+                <section className="inventories__header">
+                    <h1 className="inventories__header-title">inventories</h1>
+                    <div className="inventories__header-search-container">
+                        <div className="inventories__header-search">
+                            <img
+                                className="inventories__header-image"
+                                src="../assets/Icons/search-24px.svg"
+                                alt="search icon"
+                            />
+                            <input
+                                type="text"
+                                className="inventories__header-input"
+                                placeholder="Search ..."
+                            />
                         </div>
-                        <button className='warehouses__header-button'>+ Add New Warehouse</button>
+                        <button className="inventories__header-button">
+                            + Add New inventory
+                        </button>
                     </div>
                 </section>
 
+                <section className="inventories__lists">
+                    <div className="inventories__lists-header">
+                        <div className="inventories__lists-header-column-title">
+                            <h4>INVENTORY ITEM</h4>
+                            <img src={sortIcon} alt="sort icon" />
+                        </div>
+                        <div className="inventories__lists-header-column-title">
+                            <h4>ADDRESS</h4>
+                            <img src={sortIcon} alt="sort icon" />
+                        </div>
+                        <div className="inventories__lists-header-column-title">
+                            <h4>CONTACT NAME</h4>
+                            <img src={sortIcon} alt="sort icon" />
+                        </div>
+                        <div className="inventories__lists-header-column-title">
+                            <h4>CONTACT INFORMATION</h4>
+                            <img src={sortIcon} alt="sort icon" />
+                        </div>
+                        <div className="inventories__lists-header-column-title">
+                            <h4>ACTION</h4>
+                            <img src={sortIcon} alt="sort icon" />
+                        </div>
+                    </div>
 
-                <section className='warehouses__lists'>
-                    <table className='warehouses__lists-content'>
-                        <thead className='warehouses__lists-content-header'>
-                            <tr className='warehouses__lists-content-row'>{headers.map((header, index) =>
-                                <th key={index} className='warehouse__lists-content-header-sort'>
-                                    {header}
-                                    <img className='warehouses__list-content-header-row-image' src={sortIcon} alt="sort icon" />
-                                </th>)
-                            }
-                                <th className='warehouses__header warehouses__row-cell warehouses__row-actions'></th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody className='warehouses__list-content-rows'>
-                            {warehouses.map((warehouses, index) =>
-                                <tr key={index} className='warehouses__list-content-row'>
-                                    <td className=''>
-                                        <div className=''>WAREHOUSE</div>
-                                        <br />
-                                        <a>{warehouses.warehouse_name}</a>
-                                        <img className='image' src={chevronIcon} alt="chevron icon" />
-                                    </td>
-                                    <td className=''>
-                                        <div>ADDRESS</div>
-                                        <br />
-                                        {warehouses.address}
-                                    </td>
-                                    <td className=''>
-                                        <div>CONTACT NAME</div>
-                                        <br />
-                                        {warehouses.contact_name}
-                                    </td>
-                                    <td className=''>
-                                        <div>CONTACT INFORMATION</div>
-                                        <br />{warehouses.contact_phone}
-                                        <br />{warehouses.contact_email}
-                                    </td>
-                                    <td className=''>
+                    <div className="inventories__list-content-rows">
+                        {inventories.map((inventoryData) => (
+                            <div
+                                key={inventoryData.id}
+                                className="inventories__list-content-row"
+                            >
+                                <div className="inventories__list-content-row-container">
+                                    <Link
+                                        key={inventoryData.id}
+                                        className="inventories__name"
+                                        to={`/inventories/${inventoryData.id}`}
+                                        inventory={inventoryData}
+                                        onClick={handleLinkClick}
+                                    >
+                                        <h3>{inventoryData.item_name}</h3>
                                         <img
-                                            className='image_action'
-                                            src={deleteIcon}
-                                            alt='delete icon'
-                                            onClick={() => handleClick(warehouses)}
+                                            className="image"
+                                            src={chevronIcon}
+                                            alt="chevron icon"
                                         />
-                                        <img className='image_action' src={editIcon} alt='edit icon' />
-                                    </td>
-                                </tr>
-                            )}
-                        </tbody>
-                    </table>
+                                    </Link>
+                                </div>
+                                <div className="inventories__list-content-row-container">
+                                    <p>{inventoryData.description}</p>
+                                </div>
+                                <div className="inventories__list-content-row-container">
+                                    <p>{inventoryData.category}</p>
+                                </div>
+                                <div className="inventories__list-content-row-container phone-email">
+                                    <p>{inventoryData.status}</p>
+                                    <p>{inventoryData.quantity}</p>
+                                </div>
+                                <div className="inventories__list-content-row-container">
+                                    <img
+                                        className="image_action"
+                                        src={deleteIcon}
+                                        alt="delete icon"
+                                        onClick={() => handleClick(inventoryData)}
+                                    />
+                                    <img
+                                        className="image_action"
+                                        src={editIcon}
+                                        alt="edit icon"
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </section>
             </section>
         </>
-    )
+    );
 }
 
-export default WarehouseList
+export default inventoryList;

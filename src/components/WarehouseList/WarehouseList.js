@@ -7,6 +7,7 @@ import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import Modal from "../Modal/Modal";
+import AddWarehouse from "../AddWarehouse/AddWarehouse";
 import "./WarehouseList.scss";
 
 function WarehouseList() {
@@ -29,7 +30,7 @@ function WarehouseList() {
     }
 
     function handleClick(click) {
-        console.log(click);
+        // console.log(click);
         setIsOpen(true);
         setWarehouseToDelete(click);
     }
@@ -77,9 +78,14 @@ function WarehouseList() {
                                 placeholder="Search ..."
                             />
                         </div>
+                        <Link
+                        to="/addwarehouse"
+                        
+                        >
                         <button className="warehouses__header-button">
                             + Add New Warehouse
                         </button>
+                        </Link>
                     </div>
                 </section>
 
