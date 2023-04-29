@@ -26,6 +26,9 @@
 
         &-item-container{
             display: flex;
+            @include desktop{
+                width: 30%;
+            }
         }
 
         &-back-button{

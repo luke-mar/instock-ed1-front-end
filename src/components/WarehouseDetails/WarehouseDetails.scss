@@ -17,6 +17,9 @@
         display: flex;
         justify-content: space-between;
         padding: 1rem 0rem;
+        @include tablet{
+            padding: 1rem 2rem;
+        }
     }
     &__header-location-container {
         display: flex;
@@ -74,6 +77,8 @@
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
+            padding: 1rem 2rem;
+            
         }
     }
     &__description-address {

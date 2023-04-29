@@ -74,7 +74,7 @@ const InventoryDetail = () => {
                             <h4 className="inventoryDetail__subheader">
                                 STATUS
                             </h4>
-                            <p className="inventoryDetail__content" id={inventory.status.replace(/\s+/g, '-').toLowerCase()}>
+                            <p className="inventoryDetail__content">
                                 {inventory.status}
                             </p>
                         </div>
