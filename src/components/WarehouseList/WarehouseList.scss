@@ -2,6 +2,7 @@
 @use "/src/styles/partials/variables.scss" as *;
 @use "/src/styles/partials/mixins.scss" as *;
 
+
 .warehouses {
 
     @include tablet {
@@ -163,16 +164,21 @@
                 height: 16 px;
                 margin-left: 0.5rem;
             }
-
-            &-chevron{
-            }
         }
+    }
+}
+
+
+.warehouses__lists{
+    &-header{
+        display: flex;
+        justify-content: space-evenly;
+        }
+
         
-        &--text-underline {
+        &-text-underline {
             font-weight: 600;
             color: blue;
-
-
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
@@ -210,8 +216,8 @@
                 
             }
         }
-    }
 }
+
 
 // .warehouses__lists{
 //     &-header{

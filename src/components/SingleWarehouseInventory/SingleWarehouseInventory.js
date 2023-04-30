@@ -2,7 +2,7 @@ import "./SingleWarehouseInventory.scss"
 import edit from '../../assets/Icons/edit-24px.svg'
 import deleteImg from '../../assets/Icons/delete_outline-24px.svg'
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import Modal from "../Modal/Modal";
 import DeleteInventory from '../../components/DeleteInventory/DeleteInventory';
