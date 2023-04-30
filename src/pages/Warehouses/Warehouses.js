@@ -10,9 +10,7 @@ const Warehouses = () => {
             <Routes>
                 <Route path="/" element={<WarehouseList />} />
                 <Route path="/warehouses" element={<WarehouseList />} />
-                <Route
-                    path="/warehouses/:id"
-                    element={<WarehouseDetails />}/>
+                <Route path="/warehouses/:id" element={<WarehouseDetails />}/>
             </Routes>
         </>
     );

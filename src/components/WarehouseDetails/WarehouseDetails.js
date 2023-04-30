@@ -9,7 +9,6 @@ import SingleWarehouseInventory from "../SingleWarehouseInventory/SingleWarehous
 const WarehouseDetails = () => {
     const [warehouse, setWarehouse] = useState([]);
     const params = useParams();
-
     const navigate = useNavigate();
 
     const handleBackClick = () => {

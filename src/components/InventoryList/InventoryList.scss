@@ -3,7 +3,7 @@
 @use "/src/styles/partials/mixins.scss" as *;
 
 
-.warehouses {
+.inventories {
 
     @include tablet {
         margin: 1rem;
@@ -31,7 +31,6 @@
         }
 
         &-search-container {
-
 
             * {
                 margin: auto;
@@ -151,7 +150,7 @@
             flex-wrap: wrap;
 
             @include tablet {
-                width: 20%;
+                width: 14%;
                 padding: 8px 0;
                 display: flex;
                 text-align: left;
@@ -164,21 +163,16 @@
                 height: 16 px;
                 margin-left: 0.5rem;
             }
+
+            &-chevron{
+            }
         }
-    }
-}
-
-
-.warehouses__lists{
-    &-header{
-        display: flex;
-        justify-content: space-evenly;
-        }
-
         
-        &-text-underline {
+        &--text-underline {
             font-weight: 600;
             color: blue;
+
+
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;
@@ -200,13 +194,12 @@
 
         &-actions{
             display: flex;
-            width: 100%;
             justify-content: space-between;
-
+            
             @include tablet{
                 text-align: center;  
                 padding-left: 0.5rem;
-                flex-grow: 1.5;
+                flex-grow: 2;
             }
 
             &-icons{
@@ -216,8 +209,8 @@
                 
             }
         }
+    }
 }
-
 
 // .warehouses__lists{
 //     &-header{
@@ -253,5 +246,47 @@
 // }
 
 // .warehouses__name{
+//     display: flex;
+// }
+
+
+
+
+// .inventories__lists {
+//     &-header {
+//         display: flex;
+//         justify-content: space-evenly;
+
+//         &-column-title {
+//             display: flex;
+//             width: 17%;
+//         }
+//     }
+
+// }
+
+// .inventories__list {
+//     &-content-row {
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-evenly;
+
+//         &-container {
+//             display: flex;
+//             flex-direction: row;
+//             align-items: center;
+//             width: 17%;
+//         }
+//     }
+
+// }
+
+// .phone-email {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: start;
+// }
+
+// .inventories__name {
 //     display: flex;
 // }
