@@ -1,23 +1,27 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link, createSearchParams } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
-import EditWarehouse from "../EditWarehouse/EditWarehouse";
 import Modal from "../Modal/Modal";
 import "./WarehouseList.scss";
 
-function WarehouseList() {
+function WarehouseList({setWarehouseToEdit}) {
     const [warehouses, setWarehouses] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
-    const [warehouseToEdit, setWarehouseToEdit] = useState(null);
+    const [deleteCount, setDeleteCount] = useState(0);
     const navigate = useNavigate();
+    function refreshFunction() {
+        setDeleteCount(deleteCount + 1);
+        console.log("updated deleteCount to", deleteCount);
 
-    function handleLinkClick(event){
+    }
+
+    function handleLinkClick(event) {
         const warehouseId = event.target.id;
         console.log(warehouseId);
     }
@@ -31,19 +35,15 @@ function WarehouseList() {
     const handleEditClick = (clickedItem) => {
         console.log(clickedItem);
         setWarehouseToEdit(clickedItem);
-        // navigate("/editwarehouse");
-        navigate({
-            pathname: "/editwarehouse",
-            search: createSearchParams({
-                clickedItem: clickedItem.id
-            })
-        });
-    }
+        navigate("/editwarehouse")
+    };
 
     useEffect(() => {
+        console.log("calling axios")
         axios
             .get("http://localhost:8080/warehouses")
             .then((response) => {
+                console.log("got a response from axios", response)
                 if (response.data) {
                     setWarehouses(response.data);
                 }
@@ -51,7 +51,7 @@ function WarehouseList() {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [deleteCount]);
 
     return (
         <>
@@ -60,6 +60,7 @@ function WarehouseList() {
                     <DeleteWarehouse
                         warehouseToDelete={warehouseToDelete}
                         onclose={() => setIsOpen(false)}
+                        refreshFunction={refreshFunction}
                     ></DeleteWarehouse>
                 </Modal>
             </div>
