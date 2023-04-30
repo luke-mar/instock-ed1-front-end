@@ -2,6 +2,12 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/typography' as *;
 
+@mixin mobile-behavior{
+    @media (min-width: 1px) and (max-width: 767px){
+        @content;
+    }
+}
+
 * {
     margin: 0%;
     padding: 0%;
@@ -9,6 +15,9 @@
     font-family: 'titillium';
 }
 .inventory-titles{
+    @include mobile-behavior(){
+        display: none;
+    }
     background-color: $background-grey;
     padding: 1rem 2rem;
     color: $secondary-slate;
@@ -30,20 +39,34 @@
     display: flex;
     align-items: center;
     padding: 1rem 2rem;
+    @include mobile-behavior(){
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid $secondary-cloud;
+        border-top: 1px solid $secondary-cloud;
+        font-size: 12px;
+        color: $secondary-slate;
+    }
     &__name{
         color: $primary-indigo;
         width: calc(100% - 2rem);
+        color: unset;
     }
     &__icons{
+        @include mobile-behavior(){
+            display: none;
+        }
         display: flex;
         justify-content: flex-end;
         align-items: center;
     }
     &__quantity{
         width: calc(100% - 2rem);
+        color: black;
     }
     &__category{
         width: calc(100% - 2rem);
+        color: black;
     }
 }
 
@@ -74,8 +97,60 @@
 
 .delete{
     padding-right: 1rem;
+    @include mobile-behavior(){
+        padding-right: 0;
+    }
+    &:hover{
+        cursor:pointer;
+    }
+
 }
 a{
     text-decoration: none;
     width: 100%;
+}
+
+.card-row{
+    display: flex;
+}
+
+.mobile-only{
+    @include tablet{
+        display: none;
+        font-weight: bold;
+        color: $secondary-slate;
+    }
+}
+
+.mobile-only-img{
+    @include tablet{
+        display: none;
+    }
+    padding-top: 1.5rem;
+    width: 25px;
+}
+
+.mobile-only-img2{
+    @include tablet{
+        display: none;
+    }
+    padding-top: 1.5rem;
+    width: 25px;
+    
+}
+
+.card-column{
+    @include mobile-behavior(){
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    display: flex;
+    width: 100%;
+}
+p{
+    @include mobile-behavior(){
+        padding: 0.5rem 0;
+    }
 }

@@ -11,9 +11,9 @@ function Header() {
                     <img src={logo} alt="InStock Logo at original size"></img>
                 </Link>
             </div>
-            <nav className="header__nav"> 
+            <nav className="header__nav">
                 <Link className="header__navItemLink" to={"/"}>Warehouses</Link>
-                <Link className="header__navItemLink" to={"/"}>Inventory</Link>
+                <Link className="header__navItemLink" to={"/inventories"}>Inventory</Link>
             </nav>
         </header>
     )
