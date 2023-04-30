@@ -6,14 +6,15 @@ import sortIcon from "../../assets/Icons/sort-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
-import DeleteInventory from "../DeleteInventory/DeleteInventory";
 import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
+import DeleteInventories from "../DeleteInventories/DeleteInventories";
+
 
 function InventoryList() {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
-    const [inventoryToDelete, setInventoryToDelete] = useState(null);
+    const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
     const [deleteCount, setDeleteCount] = useState(0);
     const headers = [
         "INVENTORY ITEM",
@@ -36,7 +37,7 @@ function InventoryList() {
     function handleClick(click) {
         // console.log(click);
         setIsOpen(true);
-        setInventoryToDelete(click);
+        setInventoriesToDelete([click]);
     }
 
     useEffect(() => {
@@ -58,11 +59,11 @@ function InventoryList() {
         <>
             <div className="">
                 <Modal open={isOpen}>
-                    <DeleteInventory
-                        inventoryToDelete={inventoryToDelete}
+                    <DeleteInventories
+                        inventoriesToDelete={inventoriesToDelete}
                         onclose={() => setIsOpen(false)}
                         refreshFunction={refreshFunction}
-                    ></DeleteInventory>
+                    ></DeleteInventories>
                 </Modal>
             </div>
 
@@ -126,15 +127,15 @@ function InventoryList() {
                                             onClick={handleLinkClick}
                                         >
                                             {inventory.item_name}
-                                        {/* <Link className='inventories__lists--text-underline'>
+                                            {/* <Link className='inventories__lists--text-underline'>
                                             {inventory.item_name}
                                         </Link> */}
-                                        <img
-                                            className="inventories__lists-icon-chevron"
-                                            src={chevronIcon}
-                                            alt="chevron icon"
+                                            <img
+                                                className="inventories__lists-icon-chevron"
+                                                src={chevronIcon}
+                                                alt="chevron icon"
                                             />
-                                            </Link>
+                                        </Link>
                                     </td>
                                     <td className="inventories__lists-cell">
                                         <div className="inventories__lists-title">
@@ -170,16 +171,16 @@ function InventoryList() {
                                             src={deleteIcon}
                                             alt="delete icon"
                                             onClick={() =>
-                                                handleClick(inventories)
+                                                handleClick(inventory)
                                             }
                                         />
                                         <img
                                             className="inventories__lists-actions-icons"
                                             src={editIcon}
                                             alt="edit icon"
-                                            onClick={() =>
-                                                handleClick(inventories)
-                                            }
+                                        // onClick={() =>
+                                        //     handleClick(inventories)
+                                        // }
                                         />
                                     </td>
                                 </tr>

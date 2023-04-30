@@ -1,16 +1,18 @@
-import "./DeleteInventory.scss";
+import "./DeleteInventories.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import axios from "axios";
 
-function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
+function DeleteInventories({ onclose, inventoriesToDelete, refreshFunction }) {
+
     const url = `http://localhost:8080/inventories/`
 
     const handleClick = (e) => {
         e.preventDefault();
         // setDisplayValue(inputValue);
         // Simple DELETE request with a JSON body using axios
-        axios.delete(url + `${inventoryToDelete.id}`)
+        axios.delete(url + `${inventoriesToDelete[0].id}`)
             .then((response) => {
+                console.log(response)
                 onclose();
                 // Update the component's state with the response data
                 // setResponseData(response.data);
@@ -33,10 +35,10 @@ function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
                 alt="close"
             />
             <h2 className="delete-container__title">
-                Delete {inventoryToDelete.item_name} inventory item?
+                Delete {inventoriesToDelete[0].item_name} inventory item?
             </h2>
             <p className="delete-container__text">
-                Please confirm that you'd like to delete the {inventoryToDelete.item_name} from the inventory list.
+                Please confirm that you'd like to delete the {inventoriesToDelete[0].item_name} from the inventory list.
                 You won't be able to undo this action.
             </p>
             <div className="delete-container__buttons">
@@ -54,4 +56,4 @@ function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
     );
 }
 
-export default Deleteinventory;
+export default DeleteInventories;

@@ -1,10 +1,8 @@
 import "./DeleteWarehouse.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function DeleteWarehouse({ onclose, warehouseToDelete, refreshFunction }) {
-    const navigate = useNavigate();
     const url = `http://localhost:8080/warehouses/`
 
     const handleClick = (e) => {
@@ -38,8 +36,7 @@ function DeleteWarehouse({ onclose, warehouseToDelete, refreshFunction }) {
                 Delete {warehouseToDelete.warehouse_name} warehouse?
             </h2>
             <p className="delete-container__text">
-                Please confirm that you'd like to delete the{" "}
-                {warehouseToDelete.warehouse_name} from the list of warehouses.
+                Please confirm that you'd like to delete the {warehouseToDelete.warehouse_name} from the list of warehouses.
                 You won't be able to undo this action.
             </p>
             <div className="delete-container__buttons">
