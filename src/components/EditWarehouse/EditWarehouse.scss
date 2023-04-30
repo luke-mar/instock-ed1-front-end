@@ -6,10 +6,14 @@
     background-color: $primary-white;
     &__h1Container {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: start;
         border-bottom: $border;
-
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+        width: unset;
     }
     &__h1 {
         padding-bottom: 24px;
@@ -18,6 +22,9 @@
     &__header {
         @include m-h2-subheader;
         padding: 16px 16px 24px 16px;
+    }
+    &__header--insideForm {
+        padding-left: 0;
     }
     &__form {
         display: flex;

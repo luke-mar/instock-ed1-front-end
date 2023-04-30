@@ -1,14 +1,13 @@
 import "./EditWarehouse.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useRef } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 function EditWarehouse({warehouseToEdit}) {
     const formRef = useRef();
     const [warehouses, setWarehouses] = useState();
     const navigate = useNavigate();
-    const location = useLocation();
     
     const {id, warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email} = warehouseToEdit;
     const editWarehouse = (e) => {
@@ -50,7 +49,9 @@ function EditWarehouse({warehouseToEdit}) {
     return (
         <section className="warehouse">
             <div className="warehouse__h1Container">
-                <img src={backIcon} alt="Back icon"></img>
+                <Link className="warehouse__link" to="/warehouses">
+                    <img src={backIcon} alt="Back icon"></img>
+                </Link>
                 <h1 className="warehouse__h1">
                     Edit Warehouse
                 </h1>
@@ -77,7 +78,7 @@ function EditWarehouse({warehouseToEdit}) {
                 </section>
                 <hr/>
                 <section className="warehouse__formContactDetails">
-                    <p className="warehouse__header">Contact Details</p>
+                    <p className="warehouse__header warehouse__header--insideForm">Contact Details</p>
                     <label className="warehouse__formLabel">
                         Contact Name
                     </label>
