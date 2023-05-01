@@ -1,30 +1,18 @@
 import "./EditInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import InventoryList from "../InventoryList/InventoryListG";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 function EditInventory({ onclose }) {
-
+    const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
 
-
-    useEffect(() => {
-        axios.get('http://localhost:8080/inventories')
-            .then(response => {
-                if (response.data) {
-                    setInventories(response.data)
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-        , [])
-
+    const handleBackClick = () => {
+        navigate(-1);
+    };
 
     useEffect(() => {
         axios.post('http://localhost:8080/inventories')
@@ -57,7 +45,7 @@ function EditInventory({ onclose }) {
     return (
         <section className='inventory'>
             <div className="inventory__header">
-                <img className="inventory__back-icon" src={backIcon} alt="Back icon" />
+                <img className="inventory__back-icon" onClick={handleBackClick} src={backIcon} alt="Back icon" />
                 <h1 className="inventory__title">
                     Edit Inventory Item
                 </h1>
@@ -168,10 +156,11 @@ function EditInventory({ onclose }) {
 
             <div className="inventory-details__button">
                 <div className="inventory-details__button-container">
-                    <Link to={"/inventories"}>
+                    <Link>
                         <button
                             type="button"
-                            className="inventory-details__button-1">Cancel</button>
+                            className="inventory-details__button-1"
+                            onClick={handleBackClick}>Cancel</button>
                     </Link>
                 </div>
                 <div className="inventory-details__button-container">

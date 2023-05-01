@@ -45,13 +45,15 @@ const WarehouseDetails = () => {
                         </h1>
                     </div>
                     <div className="warehouseDetails__header-edit-button-container">
+                        {/* <Link to={`/editwarehouse`}> */}
                         <button className="warehouseDetails__header-location-edit-button">
-                            {" "}
+                            {" "} 
                             <img src={edit} alt="edit icon" />{" "}
                             <h3 className="warehouseDetails__header-location-edit-content">
                                 Edit
                             </h3>
                         </button>
+                        {/* </Link> uncomment this when it is ready */}
                     </div>
                 </div>
                 <div className="warehouseDetails__description-container">

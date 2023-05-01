@@ -40,11 +40,11 @@ function WarehouseList() {
     }
 
     useEffect(() => {
-        console.log("calling axios");
+        // console.log("calling axios");
         axios
             .get("http://localhost:8080/warehouses")
             .then((response) => {
-                console.log("got a response from axios", response);
+                // console.log("got a response from axios", response);
                 if (response.data) {
                     setWarehouses(response.data);
                 }
@@ -84,7 +84,7 @@ function WarehouseList() {
                         </div>
                         <Link to={"/addwarehouse"}>
                             <button className="warehouses__header-button">
-                                + Add New Warehouse
+                                <h3>+ Add New Warehouse</h3>
                             </button>
                         </Link>
                     </div>
@@ -96,7 +96,7 @@ function WarehouseList() {
                             <tr className="warehouses__lists-row">
                                 {headers.map((header) => (
                                     <th className="warehouses__lists-cell">
-                                        {header}
+                                        <h4>{header}</h4>
                                         <img
                                             className="warehouse__lists-icon"
                                             src={sortIcon}
@@ -105,7 +105,7 @@ function WarehouseList() {
                                     </th>
                                 ))}
                                 <th className="warehouses__lists-cell warehouse__lists-actions">
-                                    ACTIONS
+                                    <h4>ACTIONS</h4>
                                 </th>
                             </tr>
                         </thead>
@@ -119,11 +119,11 @@ function WarehouseList() {
                                         </div>
                                         <br />
                                         <Link
-                                            className=""
+                                            className="link"
                                             to={`/warehouses/${warehouse.id}`}
                                             onClick={handleLinkClick}
                                         >
-                                            {warehouse.warehouse_name}
+                                            <h3 className="warehouse__name">{warehouse.warehouse_name}</h3>
                                             <img
                                                 className="warehouse__lists-icon-chevron"
                                                 src={chevronIcon}
@@ -136,23 +136,23 @@ function WarehouseList() {
                                             ADDRESS
                                         </div>
                                         <br />
-                                        {warehouse.address}
+                                        <p className="warehouse__info">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                                     </td>
                                     <td className="warehouses__lists-cell">
                                         <div className="warehouses__lists-title">
                                             CONTACT NAME
                                         </div>
                                         <br />
-                                        {warehouse.contact_name}
+                                        <p className="warehouse__contact-info">{warehouse.contact_name}</p>
                                     </td>
                                     <td className="warehouses__lists-cell">
                                         <div className="warehouses__lists-title">
                                             CONTACT INFORMATION
                                         </div>
                                         <br />
-                                        {warehouse.contact_phone}
+                                        <p className="warehouse__info">{warehouse.contact_phone}</p>
                                         <br />
-                                        {warehouse.contact_email}
+                                        <p className="warehouse__info">{warehouse.contact_email}</p>
                                     </td>
                                     <td className="warehouses__lists-cell warehouse__lists-actions">
                                         <img
@@ -163,12 +163,14 @@ function WarehouseList() {
                                                 handleClick(warehouse)
                                             }
                                         />
-                                        <img
-                                            className="warehouses__lists-actions-icons"
-                                            src={editIcon}
-                                            alt="edit icon"
-                                            // onClick={() => handleClickEdit(warehouse)}
-                                        />
+                                        {/* <Link to={`/editwarehouse`}> uncomment this when it is ready*/}
+                                            <img
+                                                className="warehouses__lists-actions-icons"
+                                                src={editIcon}
+                                                alt="edit icon"
+                                                // onClick={() => handleClickEdit(warehouse)}
+                                            />
+                                        {/* </Link> */}
                                     </td>
                                 </tr>
                             ))}

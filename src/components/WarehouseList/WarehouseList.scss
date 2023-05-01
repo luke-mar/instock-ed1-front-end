@@ -86,18 +86,17 @@
         }
 
         &-button {
-            display: block;
             width: 100%;
             background-color: blue;
-            font-size: 16px;
-            font-weight: bold;
             text-align: center;
             color: white;
             border: none;
             border-radius: 2rem;
             padding: 1rem;
+            @include m-h3-labels-links-buttons;
 
             @include tablet {
+                @include td-h3-labels-links-buttons;
                 transition: all 0.2s;
 
                 &:hover {
@@ -175,6 +174,12 @@
         justify-content: space-evenly;
         }
 
+    &-cell{
+        @include m-h4-table-header;
+        @include tablet{
+            @include td-h4-table-header;
+        }
+    }
         
         &-text-underline {
             font-weight: 600;
@@ -210,7 +215,7 @@
             }
 
             &-icons{
-                height: 32px;
+                height: 24px;
                 margin-right: 1rem;
                 justify-content: flex-end;
                 
@@ -218,40 +223,24 @@
         }
 }
 
+.warehouse{
 
-// .warehouses__lists{
-//     &-header{
-//         display: flex;
-//         justify-content: space-evenly;
+    &__name{
+        @include m-h4-table-header;
+        @include tablet{
+            @include td-h4-table-header;
+        }
+    }
 
-//         &-column-title{
-//             display: flex;
-//             width: 17%;
-//         }
-//     }
+    &__info{
+        @include m-p3-body-small;
+        @include tablet{
+            @include td-p1-body-large;
+        }
+    }
+}
 
-// }
+.link{
+    display: flex;
+}
 
-// .warehouses__list{
-//     &-content-row{
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-evenly;
-//         &-container{
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             width: 17%;
-//         }
-//     }
-
-// }
-// .phone-email{
-//     display: flex;
-//     flex-direction: column;
-//     align-items: start;
-// }
-
-// .warehouses__name{
-//     display: flex;
-// }

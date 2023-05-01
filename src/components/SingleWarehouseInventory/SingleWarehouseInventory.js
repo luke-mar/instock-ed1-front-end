@@ -64,7 +64,7 @@ function SingleWarehouseInventory(props) {
                               </Link>
                               <p className="mobile-only">CATEGORY</p>
                               <p className="inventory-item__category">{invent.category}</p>
-                              <img className="delete mobile-only-img" src={deleteImg} onClick={() => handleClick(invent)}></img>
+                              <img className="delete mobile-only-img" alt="delete icon" src={deleteImg} onClick={() => handleClick(invent)}></img>
                             </div>
 
                             <div className="card-column">
@@ -74,11 +74,15 @@ function SingleWarehouseInventory(props) {
                               <div className="row">
                                 <p className="inventory-item__quantity">{invent.quantity}</p>                               
                                 <div className="inventory-item__icons">
-                                    <img className="delete" src={deleteImg} onClick={() => handleClick(invent)}></img>
-                                    <img src={edit}></img>
+                                    <img className="delete" src={deleteImg} alt="delete icon" onClick={() => handleClick(invent)}></img>
+                                    <Link to={`/editinventory`}>
+                                      <img src={edit} alt="edit icon"></img>
+                                    </Link>
                                 </div>
                               </div>
-                              <img className="mobile-only-img2" src={edit}></img>
+                              <Link to={`/editinventory`}>
+                              <img className="mobile-only-img2" src={edit} alt="edit icon"></img>
+                              </Link>
                             </div>
                         </div>  
                         
