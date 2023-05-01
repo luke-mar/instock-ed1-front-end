@@ -2,7 +2,7 @@ import "./DeleteInventory.scss";
 import close from "../../assets/Icons/close-24px.svg";
 import axios from "axios";
 
-function Deleteinventory({ onclose, inventoryToDelete, refreshFunction }) {
+function Deleteinventory({ onclose, inventoryToDelete, warehouseToDelete, refreshFunction }) {
     const url = `http://localhost:8080/inventories/`
 
     const handleClick = (e) => {

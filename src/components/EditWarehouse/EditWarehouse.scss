@@ -1,0 +1,111 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/variables" as *;
+
+.warehouse {
+    background-color: $primary-white;
+    position: relative;
+    z-index: 1;
+    margin: -1rem 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+    &__h1Container {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        border-bottom: $border;
+    }
+    &__link {
+        margin-left: 16px;
+        display: flex;
+        align-items: center;
+        width: unset;
+        @include tablet {
+            margin-left: 8px;
+        }
+    }
+    &__h1 {
+        padding-bottom: 24px;
+        padding-top: 24px;
+    }
+    &__header {
+        @include m-h2-subheader;
+        padding: 16px 16px 24px 0;
+        @include tablet {
+            padding-top: 0;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__formDetails {
+        @include tablet {
+            margin-top: 24px;
+            display: flex;
+            margin-bottom: 4px;
+        }
+    }
+    &__formLabel {
+        @include m-h3-labels-links-buttons;
+        padding-bottom: 4px;
+    }
+    &__formInput {
+        @include m-input;
+        margin-bottom: 16px;
+    }
+    &__formWarehouseDetails {
+        padding: 16px;
+        @include tablet {
+            padding-top: 0;
+        }
+    }
+    &__formContactDetails {
+        padding: 16px;
+        @include tablet {
+            padding-top: 0;
+            border-left: $border;
+        }
+    }
+    &__formButtons {
+        background-color: $background-grey;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 16px;
+        @include tablet {
+            justify-content:right;
+        }
+    }
+    &__formCancelContainer {
+        width: 50%;
+        margin-right: 16px;
+        @include tablet {
+            width: auto;
+        }
+    }
+    &__formCancelButton {
+        @include button;
+        background-color: $primary-white;
+        color: $secondary-slate;
+        font-weight: 600;
+        width: 100%;
+        @include tablet {
+            width: auto;
+        }
+    }
+    &__formSaveButton {
+        width: 50%;
+        @include button;
+        background-color: $primary-indigo;
+        color: $primary-white;
+        font-weight: 600;
+        @include tablet {
+            width: auto;
+        }
+    }
+    button:hover {
+        text-decoration: underline;
+    }
+}
