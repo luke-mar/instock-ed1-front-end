@@ -11,7 +11,7 @@ function SingleWarehouseInventory(props) {
   const [inventoryList, setInventoryList] = useState([]);
   const [deleteCount, setDeleteCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const params=useParams();
+  const params=useParams()
   useEffect(() => {
     axios.get(`http://localhost:8080/warehouses/${props.id}/inventories`)
       .then((response) => {
@@ -81,7 +81,7 @@ function SingleWarehouseInventory(props) {
                                     </Link>
                                 </div>
                               </div>
-                              <Link className="mobile-only-img2" to={`/inventories/${invent.id}/editinventory`}>
+                              <Link className="mobile-only-img2"to={`/inventories/${invent.id}/editinventory`}>
                               <img  src={edit} alt="edit icon"></img>
                               </Link>
                             </div>

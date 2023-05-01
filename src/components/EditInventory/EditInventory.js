@@ -143,7 +143,7 @@ function EditInventory({ onclose }) {
                     <input
                         type="number"
                         className="inventory-details__input"
-                        value={inventories.quantity}
+                        placeholder={inventories.quantity}
                     />
 
                     <label className="inventory-details__label">Warehouse</label>
