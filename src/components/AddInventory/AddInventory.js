@@ -1,8 +1,7 @@
 import "./AddInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
-import InventoryList from "../InventoryList/InventoryListG";
 import axios from "axios";
 
 
