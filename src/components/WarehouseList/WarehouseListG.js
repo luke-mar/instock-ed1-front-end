@@ -143,7 +143,7 @@ function WarehouseList() {
                                             CONTACT NAME
                                         </div>
                                         <br />
-                                        <p className="warehouse__contact-info">{warehouse.contact_name}</p>
+                                        <p className="warehouse__info">{warehouse.contact_name}</p>
                                     </td>
                                     <td className="warehouses__lists-cell">
                                         <div className="warehouses__lists-title">

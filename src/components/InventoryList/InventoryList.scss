@@ -216,3 +216,18 @@
 .link{
     display: flex;
 }
+
+#instock{
+    color: $supporting-green;
+    background-color: rgb(212, 255, 212);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
+}
+#outofstock{
+    color: $supporting-red;
+    background-color: rgb(253, 186, 186);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
+}

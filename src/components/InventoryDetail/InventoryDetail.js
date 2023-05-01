@@ -76,7 +76,7 @@ const InventoryDetail = () => {
                             <h4 className="inventoryDetail__subheader">
                                 STATUS
                             </h4>
-                            <p className="inventoryDetail__content">
+                            <p className='inventoryDetail__content' id={`${inventory.quantity > 0 ? 'instock' : 'outofstock'}`}>
                                 {inventory.status}
                             </p>
                         </div>

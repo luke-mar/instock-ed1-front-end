@@ -148,7 +148,7 @@ function InventoryList() {
                                             STATUS
                                         </h4>
                                         <br />
-                                        <p>{inventory.status}</p>
+                                        <p id={`${inventory.quantity > 0 ? 'instock' : 'outofstock'}`}>{inventory.status}</p>
                                     </td>
                                     <td className="inventories__lists-cell">
                                         <h4 className="inventories__lists-title">

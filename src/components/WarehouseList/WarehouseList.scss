@@ -228,14 +228,14 @@
     &__name{
         @include m-h4-table-header;
         @include tablet{
-            @include td-h4-table-header;
+            @include td-h3-labels-links-buttons;
         }
     }
 
     &__info{
         @include m-p3-body-small;
         @include tablet{
-            @include td-p1-body-large;
+            @include td-p2-body-medium;
         }
     }
 }
