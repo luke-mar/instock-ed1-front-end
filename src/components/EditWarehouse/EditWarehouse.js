@@ -56,51 +56,55 @@ function EditWarehouse({warehouseToEdit}) {
                     Edit Warehouse
                 </h1>
             </div>
-            <p className="warehouse__header">Warehouse Details</p>
             <form className="warehouse__form" onSubmit={editWarehouse} ref={formRef}>
-                <section className="warehouse__formContactDetails">
-                    <label className="warehouse__formLabel">
-                        Warehouse Name
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="warehouseName" placeholder="Warehouse Name" defaultValue={warehouse_name}></input>
-                    <label className="warehouse__formLabel">
-                        Street Address
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="streetAddress" placeholder="Street Address" defaultValue={address}></input>
-                    <label className="warehouse__formLabel">
-                        City
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="city" placeholder="City" defaultValue={city}></input>
-                    <label className="warehouse__formLabel">
-                        Country
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="country" placeholder="Country" defaultValue={country}></input>
-                </section>
-                <hr/>
-                <section className="warehouse__formContactDetails">
-                    <p className="warehouse__header warehouse__header--insideForm">Contact Details</p>
-                    <label className="warehouse__formLabel">
-                        Contact Name
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="contactName" placeholder="Contact Name" defaultValue={contact_name}></input>
-                    <label className="warehouse__formLabel">
-                        Position
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="position" placeholder="Position" defaultValue={contact_position}></input>                
-                    <label className="warehouse__formLabel">
-                        Phone Number
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="phoneNumber" placeholder="Phone Number" defaultValue={contact_phone}></input>                
-                    <label className="warehouse__formLabel">
-                        Email
-                    </label>
-                    <input className="warehouse__formInput" type="text" name="email" placeholder="Email" defaultValue={contact_email}></input>
-
-                    <div className="warehouse__formButtons">
-                        <Link to={"/warehouses"}><button type="button">Cancel</button></Link>
-                        <button type="submit">Save</button>
+                <div className="warehouse__formDetails">
+                    <section className="warehouse__formWarehouseDetails">
+                        <p className="warehouse__header">Warehouse Details</p>
+                        <label className="warehouse__formLabel">
+                            Warehouse Name
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="warehouseName" placeholder="Warehouse Name" defaultValue={warehouse_name}></input>
+                        <label className="warehouse__formLabel">
+                            Street Address
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="streetAddress" placeholder="Street Address" defaultValue={address}></input>
+                        <label className="warehouse__formLabel">
+                            City
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="city" placeholder="City" defaultValue={city}></input>
+                        <label className="warehouse__formLabel">
+                            Country
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="country" placeholder="Country" defaultValue={country}></input>
+                    </section>
+                    <section className="warehouse__formContactDetails">
+                        <p className="warehouse__header warehouse__header">Contact Details</p>
+                        <label className="warehouse__formLabel">
+                            Contact Name
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="contactName" placeholder="Contact Name" defaultValue={contact_name}></input>
+                        <label className="warehouse__formLabel">
+                            Position
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="position" placeholder="Position" defaultValue={contact_position}></input>                
+                        <label className="warehouse__formLabel">
+                            Phone Number
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="phoneNumber" placeholder="Phone Number" defaultValue={contact_phone}></input>                
+                        <label className="warehouse__formLabel">
+                            Email
+                        </label>
+                        <input className="warehouse__formInput" type="text" name="email" placeholder="Email" defaultValue={contact_email}></input>
+                    </section>
+                </div>
+                <div className="warehouse__formButtons">
+                    <div className="warehouse__formCancelContainer">
+                        <Link to={"/warehouses"}>
+                            <button type="button" className="warehouse__formCancelButton">Cancel</button>
+                        </Link>
                     </div>
-                </section>
+                    <button type="submit" className="warehouse__formSaveButton">Save</button>
+                </div>
             </form>
         </section>
     )
