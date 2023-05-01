@@ -143,7 +143,7 @@ function EditInventory({ onclose }) {
                     <input
                         type="number"
                         className="inventory-details__input"
-                        placeholder={inventories.quantity}
+                        value={inventories.quantity}
                     />
 
                     <label className="inventory-details__label">Warehouse</label>
@@ -178,7 +178,7 @@ function EditInventory({ onclose }) {
                 </div>
                 <div className="inventory-details__button-container">
                     {/* <Link to={"/inventories"}> */}
-                        <button type="submit" className="inventory-details__button-2">Save</button>
+                        <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
                     {/* </Link> */}
                 </div>
             </div>
