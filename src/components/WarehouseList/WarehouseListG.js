@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import SearchIcon from "../../assets/Icons/search-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
@@ -10,11 +10,12 @@ import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import Modal from "../Modal/Modal";
 import "./WarehouseList.scss";
 
-function WarehouseList() {
+function WarehouseList({setWarehouseToEdit}) {
     const [warehouses, setWarehouses] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
     const [deleteCount, setDeleteCount] = useState(0);
+    const navigate = useNavigate();
     const headers = [
         "WAREHOUSE",
         "ADDRESS",
@@ -38,6 +39,11 @@ function WarehouseList() {
         setIsOpen(true);
         setWarehouseToDelete(click);
     }
+
+    function handleClickEdit(clickedItem) {
+        setWarehouseToEdit(clickedItem);
+        navigate("/editwarehouse");
+    };
 
     useEffect(() => {
         // console.log("calling axios");
@@ -180,7 +186,7 @@ function WarehouseList() {
                                             className="warehouses__lists-actions-icons"
                                             src={editIcon}
                                             alt="edit icon"
-                                            // onClick={() => handleClickEdit(warehouse)}
+                                            onClick={() => handleClickEdit(warehouse)}
                                         />
                                         {/* </Link> */}
                                     </td>
