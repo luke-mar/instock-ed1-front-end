@@ -136,8 +136,8 @@
             width: 100%;
             padding: 0.5rem 1rem;
             display: flex;
+            flex-direction: row;
             transition: all 0.1s;
-            flex-wrap: wrap;
             border-bottom: 1px solid black;
 
             &:hover {
@@ -147,12 +147,13 @@
 
         &-cell {
             width: 50%;
-            flex-wrap: wrap;
+            // flex-wrap: wrap;
 
             @include tablet {
-                width: 14%;
+                width: 16%;
                 padding: 8px 0;
                 display: flex;
+                flex-direction: row;
                 text-align: left;
                 align-items: center;
             }
@@ -162,9 +163,6 @@
             @include tablet {
                 height: 16 px;
                 margin-left: 0.5rem;
-            }
-
-            &-chevron{
             }
         }
         
@@ -212,81 +210,24 @@
     }
 }
 
-// .warehouses__lists{
-//     &-header{
-//         display: flex;
-//         justify-content: space-evenly;
+.warehouse__lists-actions a{
+    width: unset;
+}
+.link{
+    display: flex;
+}
 
-//         &-column-title{
-//             display: flex;
-//             width: 17%;
-//         }
-//     }
-
-// }
-
-// .warehouses__list{
-//     &-content-row{
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-evenly;
-//         &-container{
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             width: 17%;
-//         }
-//     }
-
-// }
-// .phone-email{
-//     display: flex;
-//     flex-direction: column;
-//     align-items: start;
-// }
-
-// .warehouses__name{
-//     display: flex;
-// }
-
-
-
-
-// .inventories__lists {
-//     &-header {
-//         display: flex;
-//         justify-content: space-evenly;
-
-//         &-column-title {
-//             display: flex;
-//             width: 17%;
-//         }
-//     }
-
-// }
-
-// .inventories__list {
-//     &-content-row {
-//         display: flex;
-//         flex-direction: row;
-//         justify-content: space-evenly;
-
-//         &-container {
-//             display: flex;
-//             flex-direction: row;
-//             align-items: center;
-//             width: 17%;
-//         }
-//     }
-
-// }
-
-// .phone-email {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: start;
-// }
-
-// .inventories__name {
-//     display: flex;
-// }
+#instock{
+    color: $supporting-green;
+    background-color: rgb(212, 255, 212);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
+}
+#outofstock{
+    color: $supporting-red;
+    background-color: rgb(253, 186, 186);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
+}

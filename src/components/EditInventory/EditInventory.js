@@ -1,18 +1,22 @@
 import "./EditInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import InventoryList from "../InventoryList/InventoryListG";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
 function EditInventory({ onclose }) {
+    const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
+    const params = useParams();
 
+    const handleBackClick = () => {
+        navigate(-1);
+    };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/inventories')
+        axios.get(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
@@ -22,11 +26,10 @@ function EditInventory({ onclose }) {
                 console.log(error);
             })
     }
-        , [])
-
+        , [params.id])
 
     useEffect(() => {
-        axios.post('http://localhost:8080/inventories')
+        axios.put(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
@@ -36,7 +39,7 @@ function EditInventory({ onclose }) {
                 console.log(error);
             })
     }
-        , [])
+        , [params.id])
 
     useEffect(() => {
         axios.get('http://localhost:8080/warehouses')
@@ -56,11 +59,11 @@ function EditInventory({ onclose }) {
     return (
         <section className='inventory'>
             <div className="inventory__header">
-                <img className="inventory__back-icon" src={backIcon} alt="Back icon" />
+                <img className="inventory__back-icon" onClick={handleBackClick} src={backIcon} alt="Back icon" />
                 <h1 className="inventory__title">
                     Edit Inventory Item
                 </h1>
-                {/* style h1 and other others separately */}
+                
             </div>
 
             <section className="inventory-details-container">
@@ -73,14 +76,14 @@ function EditInventory({ onclose }) {
                     <input
                         type="text"
                         className="inventory-details__input"
-                        placeholder="Television"
+                        placeholder={inventories.item_name}
                     />
 
                     <label className="inventory-details__label">Description</label>
                     <textarea
                         type="text-area"
                         className="inventory-details__input-description"
-                        placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
+                        placeholder={inventories.description}
                     />
 
                     <label className="inventory-details__label">Category</label>
@@ -99,7 +102,6 @@ function EditInventory({ onclose }) {
                             className="inventory-details__arrow-icon"
                             alt="arrow icon"
                         />
-                        {/* not styled */}
                     </select>
                 </div>
 
@@ -141,7 +143,7 @@ function EditInventory({ onclose }) {
                     <input
                         type="number"
                         className="inventory-details__input"
-                        placeholder="Quantity"
+                        placeholder={inventories.quantity}
                     />
 
                     <label className="inventory-details__label">Warehouse</label>
@@ -167,16 +169,17 @@ function EditInventory({ onclose }) {
 
             <div className="inventory-details__button">
                 <div className="inventory-details__button-container">
-                    <Link to={"/inventories"}>
+                    <Link>
                         <button
                             type="button"
-                            className="inventory-details__button-1">Cancel</button>
+                            className="inventory-details__button-1"
+                            onClick={handleBackClick}>Cancel</button>
                     </Link>
                 </div>
                 <div className="inventory-details__button-container">
-                    <Link to={"/inventories"}>
-                        <button type="button" className="inventory-details__button-2">Save</button>
-                    </Link>
+                    {/* <Link to={"/inventories"}> */}
+                        <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
+                    {/* </Link> */}
                 </div>
             </div>
         </section>
