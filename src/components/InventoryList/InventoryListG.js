@@ -174,7 +174,7 @@ function InventoryList() {
                                             }
                                         />
                                         <Link
-                                            to={"/editinventory"}
+                                            to={`/inventories/${inventory.id}/editinventory`}
                                             className="edit-inventory-link"
                                         >
                                             <img
