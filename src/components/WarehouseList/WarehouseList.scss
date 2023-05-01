@@ -150,6 +150,8 @@
         &--name-color{
             text-decoration: none;
             color: $primary-indigo;
+            display: flex;
+            align-content: center;
         }
 
         &-cell {
@@ -190,7 +192,7 @@
         
         &-text-underline {
             font-weight: 600;
-            color: blue;
+            color: $primary-indigo;
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;

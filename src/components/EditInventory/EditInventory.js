@@ -1,35 +1,58 @@
 import "./EditInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
-function EditInventory({ onclose }) {
+function EditInventory({ inventoryToEdit }) {
+    const formRef = useRef();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
     const params = useParams();
 
-    const handleBackClick = () => {
+    const handleBackClick = () => {    
         navigate(-1);
+    };
+
+    const {item_name, category, status, quantity} = inventoryToEdit;
+    const editInventory = (e) => {
+        e.preventDefault();
+        const item_name = formRef.current.itemName.value
+        const category = formRef.current.category.value
+        const status = formRef.current.status.value
+        const quantity = formRef.current.quantity.value
+
+        if(!warehouse_id || !item_name || !description || !category || !status || !quantity) {
+            alert("Please fill out all fields before saving!");
+            return;
+        }
+
+        if(quantity.length < 1) {
+            alert("Please enter an amount.");
+            return;
+        }
+
+        if(description.length < 1) {
+            alert("Please enter a description.");
+            return;
+        }
+
+        axios
+        .put(`http://localhost:8080/inventories/${params.id}`, inventories)
+        .then(response => {
+            if (response.data) {
+                setInventories(response.data)
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        });
     };
 
     useEffect(() => {
         axios.get(`http://localhost:8080/inventories/${params.id}`)
-            .then(response => {
-                if (response.data) {
-                    setInventories(response.data)
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-        , [params.id])
-
-    useEffect(() => {
-        axios.put(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
@@ -54,16 +77,18 @@ function EditInventory({ onclose }) {
     }
         , [])
 
+   
 
 
     return (
         <section className='inventory'>
+            <form onSubmit={editInventory} ref={formRef}>
             <div className="inventory__header">
                 <img className="inventory__back-icon" onClick={handleBackClick} src={backIcon} alt="Back icon" />
                 <h1 className="inventory__title">
                     Edit Inventory Item
                 </h1>
-                
+
             </div>
 
             <section className="inventory-details-container">
@@ -178,10 +203,11 @@ function EditInventory({ onclose }) {
                 </div>
                 <div className="inventory-details__button-container">
                     {/* <Link to={"/inventories"}> */}
-                        <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
+                    <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
                     {/* </Link> */}
                 </div>
             </div>
+            </form>
         </section>
     )
 }

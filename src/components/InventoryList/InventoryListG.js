@@ -137,7 +137,7 @@ function InventoryList({setInventoryToEdit}) {
                                             {inventory.item_name}
                                         </Link> */}
                                             <img
-                                                className="inventories__lists-icon-chevron"
+                                                className="inventories__lists-name-color"
                                                 src={chevronIcon}
                                                 alt="chevron icon"
                                             />
