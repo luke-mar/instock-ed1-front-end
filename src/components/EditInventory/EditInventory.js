@@ -16,7 +16,7 @@ function EditInventory({ onclose }) {
     };
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/inventories/${params.id}/editinventories`)
+        axios.get(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
@@ -83,7 +83,7 @@ function EditInventory({ onclose }) {
                     <textarea
                         type="text-area"
                         className="inventory-details__input-description"
-                        placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
+                        placeholder={inventories.description}
                     />
 
                     <label className="inventory-details__label">Category</label>
@@ -143,7 +143,7 @@ function EditInventory({ onclose }) {
                     <input
                         type="number"
                         className="inventory-details__input"
-                        placeholder="Quantity"
+                        placeholder={inventories.quantity}
                     />
 
                     <label className="inventory-details__label">Warehouse</label>
@@ -177,9 +177,9 @@ function EditInventory({ onclose }) {
                     </Link>
                 </div>
                 <div className="inventory-details__button-container">
-                    <Link to={"/inventories"}>
-                        <button type="button" className="inventory-details__button-2">Save</button>
-                    </Link>
+                    {/* <Link to={"/inventories"}> */}
+                        <button type="submit" className="inventory-details__button-2">Save</button>
+                    {/* </Link> */}
                 </div>
             </div>
         </section>
