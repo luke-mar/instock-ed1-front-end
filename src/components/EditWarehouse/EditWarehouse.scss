@@ -4,6 +4,11 @@
 
 .warehouse {
     background-color: $primary-white;
+    position: relative;
+    z-index: 1;
+    margin: -1rem 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
     &__h1Container {
         display: flex;
         align-items: center;
@@ -11,9 +16,13 @@
         border-bottom: $border;
     }
     &__link {
+        margin-left: 16px;
         display: flex;
         align-items: center;
         width: unset;
+        @include tablet {
+            margin-left: 8px;
+        }
     }
     &__h1 {
         padding-bottom: 24px;
@@ -34,6 +43,7 @@
         @include tablet {
             margin-top: 24px;
             display: flex;
+            margin-bottom: 4px;
         }
     }
     &__formLabel {
