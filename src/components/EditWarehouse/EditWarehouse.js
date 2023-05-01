@@ -8,6 +8,10 @@ function EditWarehouse({warehouseToEdit}) {
     const formRef = useRef();
     const [warehouses, setWarehouses] = useState();
     const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate(-1);
+    };
     
     const {id, warehouse_name, address, city, country, contact_name, contact_position, contact_phone, contact_email} = warehouseToEdit;
     const editWarehouse = (e) => {
@@ -103,7 +107,7 @@ function EditWarehouse({warehouseToEdit}) {
                             <button type="button" className="warehouse__formCancelButton">Cancel</button>
                         </Link>
                     </div>
-                    <button type="submit" className="warehouse__formSaveButton">Save</button>
+                    <button type="submit" className="warehouse__formSaveButton" onClick={handleBackClick}>Save</button>
                 </div>
             </form>
         </section>

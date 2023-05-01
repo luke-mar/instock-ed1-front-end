@@ -142,15 +142,17 @@
     
 }
 
-#in-stock{
+#instock{
     color: $supporting-green;
-    border-radius: 4px;
-    text-shadow: 0 0 5px rgb(173, 230, 183),0 0 5px rgb(173, 230, 182);
-    width: calc(100% - 2rem);
+    background-color: rgb(212, 255, 212);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
 }
-#out-of-stock{
+#outofstock{
     color: $supporting-red;
-    border-radius: 4px;
-    text-shadow: 0 0 5px pink,0 0 5px pink;
-    width: calc(100% - 2rem);
+    background-color: rgb(253, 186, 186);
+    border-radius: 8px;
+    width: 4.2rem;
+    text-align: center;
 }

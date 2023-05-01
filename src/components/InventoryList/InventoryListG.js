@@ -10,7 +10,6 @@ import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
-
 function InventoryList() {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
@@ -115,10 +114,10 @@ function InventoryList() {
                             {inventories.map((inventory) => (
                                 <tr className="inventories__lists-row">
                                     <td className="inventories__lists-cell inventories__lists--text-underline">
-                                        <div className="inventories__lists-title">
+                                        <h4 className="inventories__lists-title">
                                             INVENTORY ITEM
-                                        </div>
-                                        <br />
+                                        </h4>
+                                        {/* <br /> */}
                                         <Link
                                             // key={inventory.id}
                                             className="link"
@@ -126,7 +125,7 @@ function InventoryList() {
                                             // inventory={inventory}
                                             onClick={handleLinkClick}
                                         >
-                                            {inventory.item_name}
+                                            <p>{inventory.item_name}</p>
                                             {/* <Link className='inventories__lists--text-underline'>
                                             {inventory.item_name}
                                         </Link> */}
@@ -138,32 +137,32 @@ function InventoryList() {
                                         </Link>
                                     </td>
                                     <td className="inventories__lists-cell">
-                                        <div className="inventories__lists-title">
+                                        <h4 className="inventories__lists-title">
                                             CATEGORY
-                                        </div>
+                                        </h4>
                                         <br />
-                                        {inventory.category}
+                                        <p>{inventory.category}</p>
                                     </td>
                                     <td className="inventories__lists-cell">
-                                        <div className="inventories__lists-title">
+                                        <h4 className="inventories__lists-title">
                                             STATUS
-                                        </div>
+                                        </h4>
                                         <br />
-                                        {inventory.status}
+                                        <p id={`${inventory.quantity > 0 ? 'instock' : 'outofstock'}`}>{inventory.status}</p>
                                     </td>
                                     <td className="inventories__lists-cell">
-                                        <div className="inventories__lists-title">
+                                        <h4 className="inventories__lists-title">
                                             QTY
-                                        </div>
+                                        </h4>
                                         <br />
-                                        {inventory.quantity}
+                                        <p>{inventory.quantity}</p>
                                     </td>
                                     <td className="inventories__lists-cell">
-                                        <div className="inventories__lists-title">
+                                        <h4 className="inventories__lists-title">
                                             WAREHOUSE
-                                        </div>
+                                        </h4>
                                         <br />
-                                        {inventory.warehouse_name}
+                                        <p>{inventory.warehouse_name}</p>
                                     </td>
                                     <td className="inventories__lists-cell warehouse__lists-actions">
                                         <img
@@ -174,14 +173,19 @@ function InventoryList() {
                                                 handleClick(inventory)
                                             }
                                         />
-                                        <img
-                                            className="inventories__lists-actions-icons"
-                                            src={editIcon}
-                                            alt="edit icon"
-                                        // onClick={() =>
-                                        //     handleClick(inventories)
-                                        // }
-                                        />
+                                        <Link
+                                            to={`/inventories/${inventory.id}/editinventory`}
+                                            className="edit-inventory-link"
+                                        >
+                                            <img
+                                                className="inventories__lists-actions-icons"
+                                                src={editIcon}
+                                                alt="edit icon"
+                                                // onClick={() =>
+                                                //     handleClick(inventories)
+                                                // }
+                                            />
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}

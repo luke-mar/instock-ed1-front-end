@@ -2,7 +2,7 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit2-24px.svg";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link} from "react-router-dom";
 import "./InventoryDetail.scss";
 
 const InventoryDetail = () => {
@@ -38,6 +38,7 @@ const InventoryDetail = () => {
                     </h1>
                 </div>
                 <div className="inventoryDetail__header-edit-button-container">
+                    <Link to={`/inventories/${params.id}/editinventory`}>
                     <button className="inventoryDetail__header-edit-button">
                         {" "}
                         <img
@@ -47,6 +48,7 @@ const InventoryDetail = () => {
                         />
                         <h3 className="inventoryDetail__header-edit-content">Edit</h3>
                     </button>
+                    </Link>
                 </div>
             </div>
             <div className="inventoryDetail__description">
@@ -74,7 +76,7 @@ const InventoryDetail = () => {
                             <h4 className="inventoryDetail__subheader">
                                 STATUS
                             </h4>
-                            <p className="inventoryDetail__content">
+                            <p className='inventoryDetail__content' id={`${inventory.quantity > 0 ? 'instock' : 'outofstock'}`}>
                                 {inventory.status}
                             </p>
                         </div>

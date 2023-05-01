@@ -24,12 +24,15 @@ function App() {
                     <Route path="/" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit}/>} />
                     <Route path="/warehouses" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit}/>} />
                     <Route path="/warehouses/:id" element={<WarehouseDetails />} />
-                    <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
                     <Route path="/addwarehouse" element={<AddWarehouse />} />
+                    <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
+
+
                     <Route path="/inventories" element={<InventoryList />} />
                     <Route path="/inventories/:id" element={<InventoryDetail />} />
                     <Route path="/addinventory" element={<AddInventory />} />
-                    <Route path="/editinventory" element={<EditInventory />} />
+                    <Route path="/inventories/:id/editinventory" element={<EditInventory />} />
+
                 </Routes>
             </div>
             <Footer />
