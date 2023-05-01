@@ -11,14 +11,15 @@ function AddInventory({ onclose }) {
     const [inventories, setInventories] = useState([]);
     const navigate = useNavigate();
 
+
     const addInventory = (e) => {
         e.preventDefault();
-        const warehouse_id = formRef.current.warehouse.value
-        const item_name = formRef.current.itemName.value
-        const description = formRef.current.description.value
-        const category = formRef.current.category.value
-        const status = formRef.current.status.value
-        const quantity = formRef.current.quantity.value
+        const warehouse_id = formRef.current.warehouse.value;
+        const item_name = formRef.current.itemName.value;
+        const description = formRef.current.description.value;
+        const category = formRef.current.category.value;
+        const status = formRef.current.status.value;
+        const quantity = formRef.current.quantity.value;
 
         if(!warehouse_id || !item_name || !description || !category || !status || !quantity) {
             alert("Please fill out all fields before saving!");
@@ -26,12 +27,12 @@ function AddInventory({ onclose }) {
         }
 
         axios.post('http://localhost:8080/inventories/', {
-            warehouse_id,
-            item_name,
-            description,
-            category,
-            status,
-            quantity
+            warehouse: warehouse_id, 
+            itemName: item_name, 
+            description: description,
+            category: category,
+            status: status,
+            quantity: status
         })
             .then((response) => {
                 setInventories(response.data)
