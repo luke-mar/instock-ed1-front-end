@@ -7,7 +7,6 @@ import axios from "axios";
 
 
 function EditInventory({ onclose }) {
-
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
 

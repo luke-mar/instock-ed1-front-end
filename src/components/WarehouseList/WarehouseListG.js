@@ -125,7 +125,7 @@ function WarehouseList({setWarehouseToEdit}) {
                                         </div>
                                         <br />
                                         <Link
-                                            className=""
+                                            className="warehouses__lists--name-color"
                                             to={`/warehouses/${warehouse.id}`}
                                             onClick={handleLinkClick}
                                         >

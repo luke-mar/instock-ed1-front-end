@@ -48,7 +48,7 @@
     &-details {
         display: flex;
         flex-direction: column;
-        border-top: 1px solid grey;
+        border-top: 1px solid $secondary-cloud;
         padding: 0 2rem 4rem;
         
 
@@ -138,7 +138,7 @@
                 width: 20px;
                 height: 20px;
                 border-radius: 50%;
-                border: 2px solid blue;
+                border: 2px solid $primary-indigo;
 
                 &::before {
                     content: "";
@@ -149,7 +149,7 @@
                     width: 10px;
                     height: 10px;
                     border-radius: 50%;
-                    background-color: blue;
+                    background-color: $primary-indigo;
                     opacity: 0;
                     transition: opacity 0.2s ease-in-out;
                 }
@@ -215,11 +215,11 @@
             }
 
             &-2{
-                background-color: blue;
+                background-color: $primary-indigo;
                 border-radius: 2rem;
                 width: 100%;
                 color: white;
-                border: none;
+                border: 1px solid $secondary-slate;
                 padding: 1rem;
 
                 @include tablet{

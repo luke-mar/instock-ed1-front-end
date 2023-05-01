@@ -1,19 +1,18 @@
 import "./AddInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import InventoryList from "../InventoryList/InventoryListG";
+import { useState, useEffect} from "react";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 
 function AddInventory({ onclose }) {
-
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
-        axios.get('http://localhost:8080/inventories')
+        axios.get('http://localhost:8080/inventories/')
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
@@ -28,9 +27,11 @@ function AddInventory({ onclose }) {
 
     useEffect(() => {
         axios.post('http://localhost:8080/inventories')
-            .then(response => {
+            .then((response) => {
                 if (response.data) {
                     setInventories(response.data)
+                    console.log(response.data)
+                    navigate("/inventories")
                 }
             })
             .catch(error => {
@@ -185,3 +186,13 @@ function AddInventory({ onclose }) {
 }
 
 export default AddInventory;
+
+
+// const addInventory = (e) => {
+//     e.preventDefault();
+//     const item_name = formRef.current.itemName.value
+//     const category = formRef.current.category.value
+//     const status = formRef.current.status.value
+//     const quantity = formRef.current.quantity.value
+//     const warehouse_id = formRef.current.Warehouse.value
+// }
