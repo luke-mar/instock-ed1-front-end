@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import SearchIcon from "../../assets/Icons/search-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
@@ -11,11 +11,12 @@ import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
 
-function InventoryList() {
+function InventoryList({setInventoryToEdit}) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
     const [deleteCount, setDeleteCount] = useState(0);
+    const navigate = useNavigate();
     const headers = [
         "INVENTORY ITEM",
         "CATEGORY",
@@ -39,6 +40,11 @@ function InventoryList() {
         setIsOpen(true);
         setInventoriesToDelete([click]);
     }
+
+    function handleClickEdit(clickedItem) {
+        setInventoryToEdit(clickedItem);
+        navigate("/editinventory");
+    };
 
     useEffect(() => {
         console.log("calling axios");
@@ -178,9 +184,9 @@ function InventoryList() {
                                             className="inventories__lists-actions-icons"
                                             src={editIcon}
                                             alt="edit icon"
-                                        // onClick={() =>
-                                        //     handleClick(inventories)
-                                        // }
+                                        onClick={() =>
+                                            handleClickEdit(inventories)
+                                        }
                                         />
                                     </td>
                                 </tr>
