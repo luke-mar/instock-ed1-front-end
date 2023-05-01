@@ -1,7 +1,7 @@
 import "./EditInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
@@ -9,13 +9,14 @@ function EditInventory({ onclose }) {
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
+    const params = useParams();
 
     const handleBackClick = () => {
         navigate(-1);
     };
 
     useEffect(() => {
-        axios.post('http://localhost:8080/inventories')
+        axios.put(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)

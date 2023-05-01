@@ -123,7 +123,9 @@ function WarehouseList() {
                                             to={`/warehouses/${warehouse.id}`}
                                             onClick={handleLinkClick}
                                         >
-                                            <h3 className="warehouse__name">{warehouse.warehouse_name}</h3>
+                                            <h3 className="warehouse__name">
+                                                {warehouse.warehouse_name}
+                                            </h3>
                                             <img
                                                 className="warehouse__lists-icon-chevron"
                                                 src={chevronIcon}
@@ -136,23 +138,33 @@ function WarehouseList() {
                                             ADDRESS
                                         </div>
                                         <br />
-                                        <p className="warehouse__info">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
+                                        <p className="warehouse__info">
+                                            {warehouse.address},{" "}
+                                            {warehouse.city},{" "}
+                                            {warehouse.country}
+                                        </p>
                                     </td>
                                     <td className="warehouses__lists-cell">
                                         <div className="warehouses__lists-title">
                                             CONTACT NAME
                                         </div>
                                         <br />
-                                        <p className="warehouse__info">{warehouse.contact_name}</p>
+                                        <p className="warehouse__info">
+                                            {warehouse.contact_name}
+                                        </p>
                                     </td>
                                     <td className="warehouses__lists-cell">
                                         <div className="warehouses__lists-title">
                                             CONTACT INFORMATION
                                         </div>
                                         <br />
-                                        <p className="warehouse__info">{warehouse.contact_phone}</p>
+                                        <p className="warehouse__info">
+                                            {warehouse.contact_phone}
+                                        </p>
                                         <br />
-                                        <p className="warehouse__info">{warehouse.contact_email}</p>
+                                        <p className="warehouse__info">
+                                            {warehouse.contact_email}
+                                        </p>
                                     </td>
                                     <td className="warehouses__lists-cell warehouse__lists-actions">
                                         <img
@@ -164,12 +176,12 @@ function WarehouseList() {
                                             }
                                         />
                                         {/* <Link to={`/editwarehouse`}> uncomment this when it is ready*/}
-                                            <img
-                                                className="warehouses__lists-actions-icons"
-                                                src={editIcon}
-                                                alt="edit icon"
-                                                // onClick={() => handleClickEdit(warehouse)}
-                                            />
+                                        <img
+                                            className="warehouses__lists-actions-icons"
+                                            src={editIcon}
+                                            alt="edit icon"
+                                            // onClick={() => handleClickEdit(warehouse)}
+                                        />
                                         {/* </Link> */}
                                     </td>
                                 </tr>
