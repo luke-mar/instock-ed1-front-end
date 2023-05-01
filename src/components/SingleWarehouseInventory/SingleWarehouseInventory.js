@@ -81,8 +81,8 @@ function SingleWarehouseInventory(props) {
                                     </Link>
                                 </div>
                               </div>
-                              <Link to={`/inventories/${params.id}/editinventory`}>
-                              <img className="mobile-only-img2" src={edit} alt="edit icon"></img>
+                              <Link className="mobile-only-img2" to={`/inventories/${params.id}/editinventory`}>
+                              <img  src={edit} alt="edit icon"></img>
                               </Link>
                             </div>
                         </div>  
