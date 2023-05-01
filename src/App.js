@@ -31,7 +31,7 @@ function App() {
                     <Route path="/inventories" element={<InventoryList />} />
                     <Route path="/inventories/:id" element={<InventoryDetail />} />
                     <Route path="/addinventory" element={<AddInventory />} />
-                    <Route path="/editinventory" element={<EditInventory />} />
+                    <Route path="/inventories/:id/editinventory" element={<EditInventory />} />
 
                 </Routes>
             </div>

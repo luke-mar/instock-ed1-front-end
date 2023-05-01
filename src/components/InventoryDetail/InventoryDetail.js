@@ -38,7 +38,7 @@ const InventoryDetail = () => {
                     </h1>
                 </div>
                 <div className="inventoryDetail__header-edit-button-container">
-                    <Link to={'/editinventory'}>
+                    <Link to={`/inventories/${params.id}/editinventory`}>
                     <button className="inventoryDetail__header-edit-button">
                         {" "}
                         <img

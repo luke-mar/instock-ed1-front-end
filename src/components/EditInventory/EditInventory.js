@@ -16,6 +16,19 @@ function EditInventory({ onclose }) {
     };
 
     useEffect(() => {
+        axios.get(`http://localhost:8080/inventories/${params.id}/editinventories`)
+            .then(response => {
+                if (response.data) {
+                    setInventories(response.data)
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+        , [params.id])
+
+    useEffect(() => {
         axios.put(`http://localhost:8080/inventories/${params.id}`)
             .then(response => {
                 if (response.data) {
@@ -26,7 +39,7 @@ function EditInventory({ onclose }) {
                 console.log(error);
             })
     }
-        , [])
+        , [params.id])
 
     useEffect(() => {
         axios.get('http://localhost:8080/warehouses')
@@ -50,7 +63,7 @@ function EditInventory({ onclose }) {
                 <h1 className="inventory__title">
                     Edit Inventory Item
                 </h1>
-                {/* style h1 and other others separately */}
+                
             </div>
 
             <section className="inventory-details-container">
@@ -63,7 +76,7 @@ function EditInventory({ onclose }) {
                     <input
                         type="text"
                         className="inventory-details__input"
-                        placeholder="Television"
+                        placeholder={inventories.item_name}
                     />
 
                     <label className="inventory-details__label">Description</label>
@@ -89,7 +102,6 @@ function EditInventory({ onclose }) {
                             className="inventory-details__arrow-icon"
                             alt="arrow icon"
                         />
-                        {/* not styled */}
                     </select>
                 </div>
 
