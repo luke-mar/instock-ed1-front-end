@@ -26,17 +26,16 @@ function App() {
             <div className="all">
                 <Routes>
                     <Route path="/" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit}/>} />
-                    <Route path="/warehouses" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit} editCount={changeEdit}/>} />
-                    <Route path="/warehouses/:id" element={<WarehouseDetails setWarehouseToEdit={setWarehouseToEdit} setEditCount={setEditCount} editCount={editCount}/>} />
+                    <Route path="/warehouses" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit} editCount={editCount}/>} />
+                    <Route path="/warehouses/:id" element={<WarehouseDetails setWarehouseToEdit={setWarehouseToEdit} setEditCount={changeEdit} editCount={editCount}/>} />
                     <Route path="/addwarehouse" element={<AddWarehouse />} />
                     <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
-                    <Route path="/editwarehouse/:id" element={<EditWarehouse warehouseToEdit={warehouseToEdit} setEditCount={setEditCount}/>} />
+                    <Route path="/editwarehouse/:id" element={<EditWarehouse warehouseToEdit={warehouseToEdit} setEditCount={changeEdit}/>} />
 
-
-                    <Route path="/inventories" element={<InventoryList setInventoryToEdit={setInventoryToEdit}setEditCount={setEditCount} editCount={editCount}/>} />
+                    <Route path="/inventories" element={<InventoryList setInventoryToEdit={setInventoryToEdit} setEditCount={changeEdit} editCount={editCount}/>} />
                     <Route path="/inventories/:id" element={<InventoryDetail />} />
-                    <Route path="/addinventory" element={<AddInventory setEditCount={setEditCount}/>} />
-                    <Route path="/inventories/:id/editinventory" element={<EditInventory setInventoryToEdit={inventoryToEdit}setEditCount={setEditCount}/>} />
+                    <Route path="/addinventory" element={<AddInventory setEditCount={changeEdit}/>} />
+                    <Route path="/inventories/:id/editinventory" element={<EditInventory setInventoryToEdit={inventoryToEdit} setEditCount={changeEdit}/>} />
 
                 </Routes>
             </div>

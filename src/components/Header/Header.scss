@@ -10,14 +10,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 30vw;
+    height: 12.75rem;
     @include tablet {
-        padding: 24px 32px;
+        padding: 40px 80px 150px 80px;
         height: 10vh;
         flex-direction: row;
     }
     @include desktop {
-        padding: 24px 80px;
+        padding: 40px 80px 150px 80px;
     }
     &__logo {
         padding-bottom: 8px;
