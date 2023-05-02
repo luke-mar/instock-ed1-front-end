@@ -67,7 +67,7 @@
             width: 100%;
             background-color: transparent;
             border: none;
-            outline: 1px solid;
+            outline: 1px solid $secondary-cloud;
             padding: 1rem 1.5rem;
             border-radius: 2rem;
             position: relative;
@@ -80,14 +80,16 @@
                 font-size: 16px;
 
                 &:focus {
-                    outline: 1px solid rgb(64, 64, 255);
+                    outline: 1px solid $primary-indigo;
                 }
             }
         }
 
         &-button {
             width: 100%;
-            background-color: blue;
+            background-color: $primary-indigo;
+            font-size: 16px;
+            font-weight: bold;
             text-align: center;
             color: white;
             border: none;
@@ -138,11 +140,18 @@
             display: flex;
             transition: all 0.1s;
             flex-wrap: wrap;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid $secondary-cloud;
 
             &:hover {
-                background-color: rgb(231, 231, 255);
+                background-color: rgba(46, 102, 230, 0.07);
             }
+        }
+
+        &--name-color{
+            text-decoration: none;
+            color: $primary-indigo;
+            display: flex;
+            align-content: center;
         }
 
         &-cell {
@@ -183,7 +192,7 @@
         
         &-text-underline {
             font-weight: 600;
-            color: blue;
+            color: $primary-indigo;
             &:hover {
                 cursor: pointer;
                 text-decoration: underline;

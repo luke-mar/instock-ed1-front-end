@@ -15,6 +15,7 @@ import InventoryDetail from "./components/InventoryDetail/InventoryDetail";
 
 function App() {
     const [warehouseToEdit, setWarehouseToEdit] = useState(null);
+    const [inventoryToEdit, setInventoryToEdit] = useState(null);
     const [editCount, setEditCount] = useState(0);
     function changeEdit(){
         setEditCount(editCount+1);
@@ -31,11 +32,10 @@ function App() {
                     <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
                     <Route path="/editwarehouse/:id" element={<EditWarehouse warehouseToEdit={warehouseToEdit} setEditCount={changeEdit}/>} />
 
-
-                    <Route path="/inventories" element={<InventoryList setEditCount={changeEdit} editCount={editCount}/>} />
+                    <Route path="/inventories" element={<InventoryList setInventoryToEdit={setInventoryToEdit} setEditCount={changeEdit} editCount={editCount}/>} />
                     <Route path="/inventories/:id" element={<InventoryDetail />} />
                     <Route path="/addinventory" element={<AddInventory setEditCount={changeEdit}/>} />
-                    <Route path="/inventories/:id/editinventory" element={<EditInventory setEditCount={changeEdit}/>} />
+                    <Route path="/inventories/:id/editinventory" element={<EditInventory setInventoryToEdit={inventoryToEdit} setEditCount={changeEdit}/>} />
 
                 </Routes>
             </div>

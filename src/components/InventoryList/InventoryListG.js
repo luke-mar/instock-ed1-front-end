@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import SearchIcon from "../../assets/Icons/search-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
@@ -10,11 +10,13 @@ import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
-function InventoryList(props) {
+
+function InventoryList({setInventoryToEdit}props) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
     const [deleteCount, setDeleteCount] = useState(0);
+    const navigate = useNavigate();
     const headers = [
         "INVENTORY ITEM",
         "CATEGORY",
@@ -38,6 +40,11 @@ function InventoryList(props) {
         setIsOpen(true);
         setInventoriesToDelete([click]);
     }
+
+    function handleClickEdit(clickedItem) {
+        setInventoryToEdit(clickedItem);
+        navigate("/editinventory");
+    };
 
     useEffect(() => {
         console.log("calling axios");
@@ -130,7 +137,7 @@ function InventoryList(props) {
                                             {inventory.item_name}
                                         </Link> */}
                                             <img
-                                                className="inventories__lists-icon-chevron"
+                                                className="inventories__lists-name-color"
                                                 src={chevronIcon}
                                                 alt="chevron icon"
                                             />

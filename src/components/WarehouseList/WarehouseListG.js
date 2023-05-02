@@ -123,7 +123,7 @@ function WarehouseList({setWarehouseToEdit, editCount}) {
                                         </div>
                                         <br />
                                         <Link
-                                            className="link"
+                                            className="warehouses__lists--name-color"
                                             to={`/warehouses/${warehouse.id}`}
                                             onClick={handleLinkClick}
                                         >
