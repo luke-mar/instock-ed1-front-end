@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
-function EditInventory({ onclose }) {
+function EditInventory({ onclose, setEditCount }) {
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
@@ -20,6 +20,7 @@ function EditInventory({ onclose }) {
             .then(response => {
                 if (response.data) {
                     setInventories(response.data)
+                    setEditCount();
                 }
             })
             .catch(error => {

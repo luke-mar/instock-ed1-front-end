@@ -10,7 +10,7 @@ import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
-function InventoryList() {
+function InventoryList(props) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
@@ -52,7 +52,7 @@ function InventoryList() {
             .catch((error) => {
                 console.log(error);
             });
-    }, [deleteCount]);
+    }, [deleteCount, props.editCount]);
 
     return (
         <>
