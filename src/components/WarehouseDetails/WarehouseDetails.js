@@ -6,7 +6,7 @@ import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit2-24px.svg";
 import SingleWarehouseInventory from "../SingleWarehouseInventory/SingleWarehouseInventory";
 
-const WarehouseDetails = ({setWarehouseToEdit}) => {
+const WarehouseDetails = ({setWarehouseToEdit, setEditCount, editCount}) => {
     const [warehouse, setWarehouse] = useState([]);
     const params = useParams();
     const navigate = useNavigate();
@@ -95,7 +95,7 @@ const WarehouseDetails = ({setWarehouseToEdit}) => {
                     </div>
                 </div>
             </section>
-            <SingleWarehouseInventory id={params.id} />
+            <SingleWarehouseInventory id={params.id} setEditCount={setEditCount} editCount={editCount}/>
         </div>
     );
 };

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-function EditWarehouse() {
+function EditWarehouse(props) {
 
     const formRef = useRef();
     const [warehouses, setWarehouses] = useState();
@@ -17,6 +17,7 @@ function EditWarehouse() {
             .get(`http://localhost:8080/warehouses/${params.id}`)
             .then((response) => {
                 setWarehouseToEdit(response.data);
+                props.setEditCount();
             })
             .catch((error) => {
                 console.log(error);

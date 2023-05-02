@@ -18,7 +18,7 @@ function SingleWarehouseInventory(props) {
         setInventoryList(response.data);
         }
       });
-    }, [props.id, deleteCount]);
+    }, [props.id, deleteCount, props.editCount]);
   const arrow = '  >';
     function refreshFunction() {
       setDeleteCount(deleteCount + 1);

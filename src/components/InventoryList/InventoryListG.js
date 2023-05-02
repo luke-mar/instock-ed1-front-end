@@ -11,7 +11,7 @@ import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
 
-function InventoryList({setInventoryToEdit}) {
+function InventoryList({setInventoryToEdit}props) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
@@ -59,7 +59,7 @@ function InventoryList({setInventoryToEdit}) {
             .catch((error) => {
                 console.log(error);
             });
-    }, [deleteCount]);
+    }, [deleteCount, props.editCount]);
 
     return (
         <>
