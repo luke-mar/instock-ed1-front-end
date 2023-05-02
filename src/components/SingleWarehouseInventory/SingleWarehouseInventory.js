@@ -18,7 +18,7 @@ function SingleWarehouseInventory(props) {
         setInventoryList(response.data);
         }
       });
-    }, [props.id]);
+    }, [props.id, deleteCount]);
   const arrow = '  >';
     function refreshFunction() {
       setDeleteCount(deleteCount + 1);
@@ -81,7 +81,7 @@ function SingleWarehouseInventory(props) {
                                 </div>
                               </div>
                               <Link className="mobile-only-img2"to={`/inventories/${invent.id}/editinventory`}>
-                              <img  src={edit} alt="edit icon"></img>
+                              <img src={edit} alt="edit icon"></img>
                               </Link>
                             </div>
                         </div>  
