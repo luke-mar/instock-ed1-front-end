@@ -160,7 +160,7 @@ function EditInventory({inventoryToEdit}) {
                                 type="radio"
                                 name="status"
                                 id="radio-button-1"
-                                value="option1"
+                                value="In Stock"
                                 className="inventory-details__radio-input"
                             />
                             <label for="radio-button-1" className='inventory-details__radio-label'></label>
@@ -171,7 +171,7 @@ function EditInventory({inventoryToEdit}) {
                                 type="radio"
                                 name="status"
                                 id="radio-button-2"
-                                value="option2"
+                                value="Out of Stock"
                                 className="inventory-details__radio-input"
                             />
                             <label for="radio-button-2" className='inventory-details__radio-label'></label>
@@ -211,7 +211,7 @@ function EditInventory({inventoryToEdit}) {
 
             <div className="inventory-details__button">
                 <div className="inventory-details__button-container">
-                    <Link>
+                    <Link to={"/inventories"}>
                         <button
                             type="button"
                             className="inventory-details__button-1"
@@ -219,8 +219,9 @@ function EditInventory({inventoryToEdit}) {
                     </Link>
                 </div>
                 <div className="inventory-details__button-container">
-                   
-                    <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
+                   <Link to={"/inventories"}>
+                    <button type="submit" className="inventory-details__button-2">Save</button>
+                    </Link>¸
                 </div>
             </div>
             </form>

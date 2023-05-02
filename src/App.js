@@ -15,6 +15,7 @@ import InventoryDetail from "./components/InventoryDetail/InventoryDetail";
 
 function App() {
     const [warehouseToEdit, setWarehouseToEdit] = useState(null);
+    const [inventoryToEdit, setInventoryToEdit] = useState(null);
     return (
         <>
             <Header />
