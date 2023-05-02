@@ -1,9 +1,14 @@
 .all {
     position: relative;
     z-index: 1;
-    margin: -8rem 0rem 0rem 0rem;
+    margin: 0rem 0rem 0rem 0rem;
     /* background-color: #f7f8f9; */
     @media (min-width: 768px) {
         padding: 0rem 4rem;
+        margin: -5rem 0rem 0rem 0rem;
     }
+
+    @media (min-width: 1280px) {
+        margin: -7rem 0rem 0rem 0rem; 
+  }
 }
