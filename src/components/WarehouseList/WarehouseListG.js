@@ -10,7 +10,7 @@ import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import Modal from "../Modal/Modal";
 import "./WarehouseList.scss";
 
-function WarehouseList({setWarehouseToEdit}) {
+function WarehouseList({setWarehouseToEdit, editCount}) {
     const [warehouses, setWarehouses] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [warehouseToDelete, setWarehouseToDelete] = useState(null);
@@ -56,7 +56,7 @@ function WarehouseList({setWarehouseToEdit}) {
             .catch((error) => {
                 console.log(error);
             });
-    }, [deleteCount]);
+    }, [deleteCount, editCount]);
 
     return (
         <>

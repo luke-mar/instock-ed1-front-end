@@ -25,11 +25,11 @@ function App() {
             <div className="all">
                 <Routes>
                     <Route path="/" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit}/>} />
-                    <Route path="/warehouses" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit}/>} />
+                    <Route path="/warehouses" element={<WarehouseList setWarehouseToEdit={setWarehouseToEdit} editCount={changeEdit}/>} />
                     <Route path="/warehouses/:id" element={<WarehouseDetails setWarehouseToEdit={setWarehouseToEdit} setEditCount={setEditCount} editCount={editCount}/>} />
                     <Route path="/addwarehouse" element={<AddWarehouse />} />
                     <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
-                    <Route path="/editwarehouse/:id" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
+                    <Route path="/editwarehouse/:id" element={<EditWarehouse warehouseToEdit={warehouseToEdit} setEditCount={setEditCount}/>} />
 
 
                     <Route path="/inventories" element={<InventoryList setEditCount={setEditCount} editCount={editCount}/>} />
