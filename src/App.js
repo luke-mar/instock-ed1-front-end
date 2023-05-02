@@ -15,6 +15,7 @@ import InventoryDetail from "./components/InventoryDetail/InventoryDetail";
 
 function App() {
     const [warehouseToEdit, setWarehouseToEdit] = useState();
+    const [inventoryToEdit, setInventoryToEdit] = useState();
     console.log("Warehouse to Edit: ",warehouseToEdit);
     return (
         <>
@@ -28,10 +29,10 @@ function App() {
                     <Route path="/editwarehouse" element={<EditWarehouse warehouseToEdit={warehouseToEdit}/>} />
 
 
-                    <Route path="/inventories" element={<InventoryList />} />
+                    <Route path="/inventories" element={<InventoryList setInventoryToEdit={setInventoryToEdit}/>} />
                     <Route path="/inventories/:id" element={<InventoryDetail />} />
                     <Route path="/addinventory" element={<AddInventory />} />
-                    <Route path="/inventories/:id/editinventory" element={<EditInventory />} />
+                    <Route path="/inventories/:id/editinventory" element={<EditInventory setInventoryToEdit={inventoryToEdit}/>} />
 
                 </Routes>
             </div>

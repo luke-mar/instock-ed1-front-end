@@ -5,24 +5,27 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
-function EditInventory({ inventoryToEdit }) {
+function EditInventory({inventoryToEdit}) {
     const formRef = useRef();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
     const [inventories, setInventories] = useState([]);
+    // const [inventoryToEdit, setInventoryToEdit] = useState([]);
     const params = useParams();
 
     const handleBackClick = () => {    
         navigate(-1);
     };
 
-    const {item_name, category, status, quantity} = inventoryToEdit;
+    // const {warehouse_id, item_name, description, category, status, quantity} = inventoryToEdit;
     const editInventory = (e) => {
         e.preventDefault();
-        const item_name = formRef.current.itemName.value
-        const category = formRef.current.category.value
-        const status = formRef.current.status.value
-        const quantity = formRef.current.quantity.value
+        const warehouse_id = formRef.current.warehouse.value;
+        const item_name = formRef.current.itemName.value;
+        const description = formRef.current.description.value;
+        const category = formRef.current.category.value;
+        const status = formRef.current.status.value;
+        const quantity = formRef.current.quantity.value;
 
         if(!warehouse_id || !item_name || !description || !category || !status || !quantity) {
             alert("Please fill out all fields before saving!");
@@ -40,7 +43,14 @@ function EditInventory({ inventoryToEdit }) {
         }
 
         axios
-        .put(`http://localhost:8080/inventories/${params.id}`, inventories)
+        .put(`http://localhost:8080/inventories/${params.id}`, {
+            warehouse_id, 
+            item_name, 
+            description,
+            category,
+            status,
+             quantity
+        })
         .then(response => {
             if (response.data) {
                 setInventories(response.data)
@@ -100,23 +110,28 @@ function EditInventory({ inventoryToEdit }) {
                     <label className="inventory-details__label">Item Name</label>
                     <input
                         type="text"
+                        name= "itemName"
                         className="inventory-details__input"
                         placeholder={inventories.item_name}
+                        defaultValue={inventories.item_name}
                     />
 
                     <label className="inventory-details__label">Description</label>
                     <textarea
                         type="text-area"
+                        name= "description"
                         className="inventory-details__input-description"
                         placeholder={inventories.description}
+                        defaultValue={inventories.description}
                     />
 
                     <label className="inventory-details__label">Category</label>
 
                     <select
-                        name="Category"
+                        name="category"
                         placeholder="Electronics"
                         className="inventory-details__input inventory-details__select"
+                        defaultValue={inventories.category}
                     >
                         <option value="electronics">Electronics</option>
                         <option value="gear">Gear</option>
@@ -143,7 +158,7 @@ function EditInventory({ inventoryToEdit }) {
                         <div class="inventory-details__radio-container">
                             <input
                                 type="radio"
-                                name="radio-button"
+                                name="status"
                                 id="radio-button-1"
                                 value="option1"
                                 className="inventory-details__radio-input"
@@ -154,7 +169,7 @@ function EditInventory({ inventoryToEdit }) {
                         <div class="inventory-details__radio-container">
                             <input
                                 type="radio"
-                                name="radio-button"
+                                name="status"
                                 id="radio-button-2"
                                 value="option2"
                                 className="inventory-details__radio-input"
@@ -167,19 +182,21 @@ function EditInventory({ inventoryToEdit }) {
                     <label className="inventory-details__label">Quantity</label>
                     <input
                         type="number"
+                        name= "quantity"
                         className="inventory-details__input"
                         placeholder={inventories.quantity}
                     />
 
                     <label className="inventory-details__label">Warehouse</label>
                     <select
-                        name="Warehouse"
+                        name="warehouse"
+                        value={inventories.warehouse_id}
                         placeholder="Please select"
                         className='inventory-details__input inventory-details__select'
                     >
                         {warehouses.map((warehouse) => (
                             <option
-                                className=''
+                                key= {warehouse.id}
                                 value={warehouse.id}
                             >{warehouse.warehouse_name}
                             </option>
@@ -202,9 +219,8 @@ function EditInventory({ inventoryToEdit }) {
                     </Link>
                 </div>
                 <div className="inventory-details__button-container">
-                    {/* <Link to={"/inventories"}> */}
+                   
                     <button type="submit" className="inventory-details__button-2" onClick={handleBackClick}>Save</button>
-                    {/* </Link> */}
                 </div>
             </div>
             </form>
