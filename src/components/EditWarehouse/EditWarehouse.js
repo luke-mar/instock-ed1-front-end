@@ -1,13 +1,43 @@
 import "./EditWarehouse.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
-import { useState, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
-function EditWarehouse({warehouseToEdit}) {
+function EditWarehouse() {
+
     const formRef = useRef();
     const [warehouses, setWarehouses] = useState();
     const navigate = useNavigate();
+    const params = useParams();
+    const [warehouseToEdit, setWarehouseToEdit] = useState(null);
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:8080/warehouses/${params.id}`)
+            .then((response) => {
+                setWarehouseToEdit(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [params.id]);
+
+    if(warehouseToEdit === null) {
+        return (
+            <section className="warehouse">
+                <div className="warehouse__h1Container">
+                    <Link className="warehouse__link" to="/warehouses">
+                        <img src={backIcon} alt="Back icon"></img>
+                    </Link>
+                    <h1 className="warehouse__h1">
+                        Edit Warehouse
+                    </h1>
+                </div>
+                <div>Please go back and choose a warehouse to edit.</div>
+            </section>
+        );
+    }
 
     const handleBackClick = () => {
         navigate(-1);
@@ -30,8 +60,8 @@ function EditWarehouse({warehouseToEdit}) {
             return;
         }
 
-        if(contact_phone.length < 10) {
-            alert("Please enter a valid phone number, including the area code.");
+        if(!contact_phone.match(/^[0-9]+$/) || contact_phone.length !== 10) {
+            alert("Please enter a valid phone number, including the area code. The entry must be 10 digits.");
             return;
         }
 
@@ -48,7 +78,7 @@ function EditWarehouse({warehouseToEdit}) {
         .catch((error) => {
             console.log(error)
         })
-    };
+    }
 
     return (
         <section className="warehouse">
@@ -82,7 +112,7 @@ function EditWarehouse({warehouseToEdit}) {
                         <input className="warehouse__formInput" type="text" name="country" placeholder="Country" defaultValue={country}></input>
                     </section>
                     <section className="warehouse__formContactDetails">
-                        <p className="warehouse__header warehouse__header">Contact Details</p>
+                        <p className="warehouse__header">Contact Details</p>
                         <label className="warehouse__formLabel">
                             Contact Name
                         </label>
@@ -112,6 +142,6 @@ function EditWarehouse({warehouseToEdit}) {
             </form>
         </section>
     )
-}
+};
 
 export default EditWarehouse;

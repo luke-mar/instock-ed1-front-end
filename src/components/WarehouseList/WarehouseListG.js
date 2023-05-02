@@ -42,15 +42,13 @@ function WarehouseList({setWarehouseToEdit}) {
 
     function handleClickEdit(clickedItem) {
         setWarehouseToEdit(clickedItem);
-        navigate("/editwarehouse");
+        navigate(`/editwarehouse/${clickedItem.id}`);
     };
 
     useEffect(() => {
-        // console.log("calling axios");
         axios
             .get("http://localhost:8080/warehouses")
             .then((response) => {
-                // console.log("got a response from axios", response);
                 if (response.data) {
                     setWarehouses(response.data);
                 }
@@ -181,14 +179,14 @@ function WarehouseList({setWarehouseToEdit}) {
                                                 handleClick(warehouse)
                                             }
                                         />
-                                        {/* <Link to={`/editwarehouse`}> uncomment this when it is ready*/}
+                                        <Link to={`/editwarehouse/${warehouse.id}`}>
                                         <img
                                             className="warehouses__lists-actions-icons"
                                             src={editIcon}
                                             alt="edit icon"
                                             onClick={() => handleClickEdit(warehouse)}
                                         />
-                                        {/* </Link> */}
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
