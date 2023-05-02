@@ -1,7 +1,7 @@
 //breakpoints
-$breakpoint-tablet: 48rem;
-$breakpoint-desktop: 80rem;
-$breakpoint-xl-desktop: 120rem;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1280px;
+$breakpoint-xl-desktop: 1920px;
 
 //colors
 $primary-black: #13182C;
@@ -13,3 +13,4 @@ $background-graphite: #232940;
 $background-grey: #F7F8F9;
 $supporting-green: #158463;
 $supporting-red: #C94515;
+$border: 1px solid $secondary-cloud;

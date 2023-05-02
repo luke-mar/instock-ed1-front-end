@@ -1,0 +1,13 @@
+@use "./styles/partials/mixins" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/globals" as *;
+
+.all {
+    padding: 0;
+    @include tablet {
+        padding: 0 4rem 0 4rem;
+        @include desktop {
+            padding: 0 8rem 0 8rem;
+        }
+    }
+}

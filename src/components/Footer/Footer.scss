@@ -1,0 +1,15 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography' as *;
+
+.footer {
+    margin: 0%;
+    margin-top: 1%;
+    padding: 5rem 3rem 3rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'titillium';
+    background-color: $background-grey;
+    color: $secondary-slate;
+}
