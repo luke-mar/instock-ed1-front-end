@@ -17,7 +17,7 @@
         flex-direction: row;
     }
     @include desktop {
-        padding: 24px 80px;
+        padding: 24px 80px 150px 80px;
     }
     &__logo {
         padding-bottom: 8px;
