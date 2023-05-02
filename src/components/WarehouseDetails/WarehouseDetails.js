@@ -1,12 +1,12 @@
 import "./WarehouseDetails.scss";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit2-24px.svg";
 import SingleWarehouseInventory from "../SingleWarehouseInventory/SingleWarehouseInventory";
 
-const WarehouseDetails = () => {
+const WarehouseDetails = ({setWarehouseToEdit}) => {
     const [warehouse, setWarehouse] = useState([]);
     const params = useParams();
     const navigate = useNavigate();
@@ -21,6 +21,7 @@ const WarehouseDetails = () => {
             .then((response) => {
                 console.log(response.data);
                 setWarehouse(response.data);
+                setWarehouseToEdit(response.data);
             })
             .catch((error) => {
                 console.log(error);
@@ -45,7 +46,7 @@ const WarehouseDetails = () => {
                         </h1>
                     </div>
                     <div className="warehouseDetails__header-edit-button-container">
-                        {/* <Link to={`/editwarehouse`}> */}
+                        <Link to={`/editwarehouse/${params.id}`}>
                         <button className="warehouseDetails__header-location-edit-button">
                             {" "} 
                             <img src={edit} alt="edit icon" />{" "}
@@ -53,7 +54,7 @@ const WarehouseDetails = () => {
                                 Edit
                             </h3>
                         </button>
-                        {/* </Link> uncomment this when it is ready */}
+                        </Link>
                     </div>
                 </div>
                 <div className="warehouseDetails__description-container">
