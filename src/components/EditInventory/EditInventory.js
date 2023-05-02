@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
-function EditInventory({inventoryToEdit}) {
+function EditInventory({inventoryToEdit, setEditCount}) {
     const formRef = useRef();
     const navigate = useNavigate();
     const [warehouses, setWarehouses] = useState([]);
@@ -60,80 +60,6 @@ function EditInventory({inventoryToEdit}) {
             console.log(error);
         });
     };
-
-    // const {warehouse_id, item_name, description, category, status, quantity} = inventoryToEdit;
-    const editInventory = (e) => {
-        e.preventDefault();
-        const warehouse_id = formRef.current.warehouse.value;
-        const item_name = formRef.current.itemName.value;
-        const description = formRef.current.description.value;
-        const category = formRef.current.category.value;
-        const status = formRef.current.status.value;
-        const quantity = formRef.current.quantity.value;
-
-        if(!warehouse_id || !item_name || !description || !category || !status || !quantity) {
-            alert("Please fill out all fields before saving!");
-            return;
-        }
-
-        if(quantity.length < 1) {
-            alert("Please enter an amount.");
-            return;
-        }
-
-        if(description.length < 1) {
-            alert("Please enter a description.");
-            return;
-        }
-
-        axios
-        .put(`http://localhost:8080/inventories/${params.id}`, {
-            warehouse_id, 
-            item_name, 
-            description,
-            category,
-            status,
-             quantity
-        })
-        .then(response => {
-            if (response.data) {
-                setInventories(response.data)
-            }
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    };
-
-    useEffect(() => {
-        axios.get(`http://localhost:8080/inventories/${params.id}`)
-            .then(response => {
-                if (response.data) {
-                    setInventories(response.data)
-                    setEditCount();
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-        , [params.id])
-
-    useEffect(() => {
-        axios.get('http://localhost:8080/warehouses')
-            .then(response => {
-                if (response.data) {
-                    setWarehouses(response.data)
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-        , [])
-
-   
-
 
     return (
         <section className='inventory'>

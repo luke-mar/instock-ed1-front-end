@@ -11,7 +11,7 @@ import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
 
-function InventoryList({setInventoryToEdit}props) {
+function InventoryList({setInventoryToEdit, setEditCount, editCount}) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
@@ -44,7 +44,7 @@ function InventoryList({setInventoryToEdit}props) {
     function handleClickEdit(clickedItem) {
         setInventoryToEdit(clickedItem);
         navigate("/editinventory");
-    };
+    }
 
     useEffect(() => {
         console.log("calling axios");
@@ -59,7 +59,7 @@ function InventoryList({setInventoryToEdit}props) {
             .catch((error) => {
                 console.log(error);
             });
-    }, [deleteCount, props.editCount]);
+    }, [deleteCount, editCount]);
 
     return (
         <>
