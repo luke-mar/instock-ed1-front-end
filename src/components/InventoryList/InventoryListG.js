@@ -10,8 +10,7 @@ import Modal from "../Modal/Modal";
 import "./InventoryList.scss";
 import DeleteInventories from "../DeleteInventories/DeleteInventories";
 
-
-function InventoryList({setInventoryToEdit, setEditCount, editCount}) {
+function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
     const [inventories, setInventories] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
@@ -155,7 +154,15 @@ function InventoryList({setInventoryToEdit, setEditCount, editCount}) {
                                             STATUS
                                         </h4>
                                         <br />
-                                        <p id={`${inventory.quantity > 0 ? 'instock' : 'outofstock'}`}>{inventory.status}</p>
+                                        <p
+                                            id={`${
+                                                inventory.quantity > 0
+                                                    ? "instock"
+                                                    : "outofstock"
+                                            }`}
+                                        >
+                                            {inventory.status}
+                                        </p>
                                     </td>
                                     <td className="inventories__lists-cell">
                                         <h4 className="inventories__lists-title">

@@ -24,14 +24,16 @@ function AddInventory({ onclose }) {
     }
         , [])
 
-    const addInventory = (e) => {
+        console.log(warehouses.id)
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const warehouse_id = formRef.current.warehouse.value;
+        const warehouse_id = formRef.current.warehouse.value
         const item_name = formRef.current.itemName.value;
         const description = formRef.current.description.value;
         const category = formRef.current.category.value;
         const status = formRef.current.status.value;
-        const quantity = formRef.current.quantity.value;
+        const quantity = parseInt(formRef.current.quantity.value, 10);
 
         if (!warehouse_id || !item_name || !description || !category || !status || !quantity) {
             alert("Please fill out all fields before saving!");
@@ -48,7 +50,6 @@ function AddInventory({ onclose }) {
         })
             .then((response) => {
                 setInventories(response.data)
-                console.log(response.data)
                 navigate("/inventories")
             })
             .catch(error => {
@@ -65,7 +66,7 @@ function AddInventory({ onclose }) {
 
     return (
         <section className='inventory'>
-            <form onSubmit={AddInventory} ref={formRef}>
+            <form onSubmit={handleSubmit} ref={formRef}>
                 <div className="inventory__header">
                     <img className="inventory__back-icon" src={backIcon} alt="Back icon" />
                     <h1 className="inventory__title">
@@ -101,11 +102,11 @@ function AddInventory({ onclose }) {
                             placeholder="Please select"
                             className="inventory-details__input inventory-details__select"
                         >
-                            <option value="electronics">Electronics</option>
-                            <option value="gear">Gear</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Gear">Gear</option>
                             <option value="Apparel">Apparel</option>
-                            <option value="accessories">accessories</option>
-                            <option value="health">health</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Health">Health</option>
                             <img
                                 className="inventory-details__arrow-icon"
                                 alt="arrow icon"
@@ -128,7 +129,7 @@ function AddInventory({ onclose }) {
                                     type="radio"
                                     name="status"
                                     id="radio-button-1"
-                                    value="option1"
+                                    value="In Stock"
                                     className="inventory-details__radio-input"
                                 />
                                 <label for="radio-button-1" className='inventory-details__radio-label'></label>
@@ -139,7 +140,7 @@ function AddInventory({ onclose }) {
                                     type="radio"
                                     name="status"
                                     id="radio-button-2"
-                                    value="option2"
+                                    value="Out of Stock"
                                     className="inventory-details__radio-input"
                                 />
                                 <label for="radio-button-2" className='inventory-details__radio-label'></label>
