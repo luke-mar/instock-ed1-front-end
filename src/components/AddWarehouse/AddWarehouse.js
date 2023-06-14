@@ -35,10 +35,16 @@ function AddWarehouse({onclose}) {
             return;
         }
 
-        axios.post("http://localhost:8080/warehouses/", {warehouse_name, address, city, country, contact_name, contact_position,
-        contact_phone, contact_email}).then((response) => {
+        axios.post("http://localhost:8080/warehouses/", {
+            warehouse_name, 
+            address, city, 
+            country, 
+            contact_name, 
+            contact_position,
+            contact_phone, 
+            contact_email})
+            .then((response) => {
             setWarehouses(response.data)
-            console.log(response.data)
             navigate("/warehouses")
         })
         .catch((error) => {
