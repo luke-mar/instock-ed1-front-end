@@ -48,7 +48,7 @@ function SingleWarehouseInventory(props) {
             <div className="inventory-titles">
                 <p className="inventory-titles__text">INVENTORY ITEM</p>
                 <p className="inventory-titles__text">CATEGORY</p>
-                <p className="inventory-titles__text">STATUS</p>
+                <p className="inventory-titles__text status">STATUS</p>
                 <div className="row">
                     <p className="inventory-titles__text2">QUANTITY</p>
                     <p className="inventory-titles__last-text">ACTIONS</p>
