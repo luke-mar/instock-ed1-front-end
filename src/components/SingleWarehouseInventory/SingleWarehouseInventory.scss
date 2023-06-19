@@ -1,164 +1,164 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/typography' as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
-@mixin mobile-behavior{
-    @media (min-width: 1px) and (max-width: 767px){
-        @content;
-    }
+@mixin mobile-behavior {
+  @media (min-width: 1px) and (max-width: 767px) {
+    @content;
+  }
 }
 
 * {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: border-box;
-    font-family: 'titillium';
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "titillium";
 }
-.inventory-titles{
-    @include mobile-behavior(){
-        display: none;
-    }
-    background-color: $background-grey;
-    padding: 1rem 2rem;
+.inventory-titles {
+  @include mobile-behavior() {
+    display: none;
+  }
+  background-color: $background-grey;
+  padding: 1rem 2rem;
+  color: $secondary-slate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  &__text {
+    width: calc(100% - 2rem);
+  }
+  &__last-text {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.inventory-item {
+  width: 100%;
+  border-bottom: 2px solid $secondary-cloud;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  @include mobile-behavior() {
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid $secondary-cloud;
+    border-top: 1px solid $secondary-cloud;
+    font-size: 12px;
     color: $secondary-slate;
+  }
+  &__name {
+    color: $primary-indigo;
+    width: calc(100% - 2rem);
+    color: unset;
+  }
+  &__icons {
+    @include mobile-behavior() {
+      display: none;
+    }
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    &__text{
-        width: calc(100% - 2rem);
-    }
-    &__last-text{
-        display: flex;
-        justify-content: flex-end;
-    }
+  }
+  &__quantity {
+    width: calc(100% - 2rem);
+    color: black;
+  }
+  &__category {
+    width: calc(100% - 2rem);
+    color: black;
+  }
 }
 
-.inventory-item{
-    width: 100%;
-    border-bottom: 2px solid $secondary-cloud;
-    display: flex;
-    align-items: center;
-    padding: 1rem 2rem;
-    @include mobile-behavior(){
-        align-items: center;
-        justify-content: flex-start;
-        border-bottom: 1px solid $secondary-cloud;
-        border-top: 1px solid $secondary-cloud;
-        font-size: 12px;
-        color: $secondary-slate;
-    }
-    &__name{
-        color: $primary-indigo;
-        width: calc(100% - 2rem);
-        color: unset;
-    }
-    &__icons{
-        @include mobile-behavior(){
-            display: none;
-        }
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-    &__quantity{
-        width: calc(100% - 2rem);
-        color: black;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        left: 1.7rem;
-    }
-    &__category{
-        width: calc(100% - 2rem);
-        color: black;
-    }
+.in-stock {
+  // color:blue;
+  // border-radius: 4px;
+  // text-shadow: 0 0 5px lightblue,0 0 5px lightblue;
+  width: calc(100% - 2rem);
+  color: $supporting-green;
+  background-color: rgb(21, 132, 99, 0.1);
+  border-radius: 8px;
+  //   width: 4.2rem;
+  text-align: center;
+}
+.out-of-stock {
+  // color: $supporting-red;
+  // border-radius: 4px;
+  // text-shadow: 0 0 5px pink,0 0 5px pink;
+  width: calc(100% - 2rem);
+  color: $supporting-red;
+  background-color: rgb(241, 215, 202, 0.4);
+  border-radius: 8px;
+  //   width: 4.2rem;
+  text-align: center;
 }
 
-.in-stock{
-        color: $supporting-green;
-        background-color: rgb(212, 255, 212);
-        border-radius: 8px;
-        text-shadow: 0 0 5px (212, 255, 212);
-        text-align: center;
-        width: 4.2rem;
+.column {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-.out-of-stock{
-        color: $supporting-red;
-        background-color: rgb(253, 186, 186);
-        border-radius: 8px;
-        text-shadow: 0 0 5px pink,0 0 5px pink;
-        text-align: center;
-        width: 4.2rem;
+.row {
+  display: flex;
+  width: calc(100% - 2rem);
+  justify-content: space-between;
 }
 
-.column{
+.delete {
+  padding-right: 1rem;
+  @include mobile-behavior() {
+    padding-right: 0;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.card-row {
+  display: flex;
+}
+
+.mobile-only {
+  @include tablet {
+    display: none;
+    font-weight: bold;
+    color: $secondary-slate;
+  }
+}
+
+.mobile-only-img {
+  @include tablet {
+    display: none;
+  }
+  padding-top: 1.5rem;
+  width: 25px;
+}
+
+.mobile-only-img2 {
+  @include tablet {
+    display: none;
+  }
+  padding-top: 1.5rem;
+  width: 25px;
+}
+
+.card-column {
+  @include mobile-behavior() {
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
+  }
+  display: flex;
+  width: 100%;
 }
-.row{
-    display: flex;
-    width: calc(100% - 2rem);
-    justify-content: space-between;
-}
-
-.delete{
-    padding-right: 1rem;
-    @include mobile-behavior(){
-        padding-right: 0;
-    }
-    &:hover{
-        cursor:pointer;
-    }
-
-}
-a{
-    text-decoration: none;
-    width: 100%;
-}
-
-.card-row{
-    display: flex;
-}
-
-.mobile-only{
-    @include tablet{
-        display: none;
-        font-weight: bold;
-        color: $secondary-slate;
-    }
-}
-
-.mobile-only-img{
-    @include tablet{
-        display: none;
-    }
-    padding-top: 1.5rem;
-    width: 25px;
-}
-
-.mobile-only-img2{
-    @include tablet{
-        display: none;
-    }
-    padding-top: 1.5rem;
-    width: 25px;
-    
-}
-
-.card-column{
-    @include mobile-behavior(){
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-    display: flex;
-    width: 100%;
-}
-p{
-    @include mobile-behavior(){
-        padding: 0.5rem 0;
-    }
+p {
+  @include mobile-behavior() {
+    padding: 0.5rem 0;
+  }
 }
