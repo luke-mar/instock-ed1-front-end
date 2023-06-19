@@ -72,7 +72,7 @@ function WarehouseList({setWarehouseToEdit, editCount}) {
 
             <section className="warehouses">
                 <section className="warehouses__header">
-                    <h1 className="">Warehouses</h1>
+                    <h1 className="warehouses__header-title">Warehouses</h1>
                     <div className="warehouses__header-search-container">
                         <div className="warehouses__header-search">
                             <img
@@ -163,11 +163,11 @@ function WarehouseList({setWarehouseToEdit, editCount}) {
                                         </div>
                                         <br />
                                         <p className="warehouse__info">
-                                            {warehouse.contact_phone}
+                                            Phone: {warehouse.contact_phone}
                                         </p>
                                         <br />
                                         <p className="warehouse__info">
-                                            {warehouse.contact_email}
+                                            Email: {warehouse.contact_email}
                                         </p>
                                     </td>
                                     <td className="warehouses__lists-cell warehouse__lists-actions">

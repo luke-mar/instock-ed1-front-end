@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchIcon from "../../assets/Icons/search-24px.svg";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
@@ -15,7 +15,6 @@ function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
     const [isOpen, setIsOpen] = useState(false);
     const [inventoriesToDelete, setInventoriesToDelete] = useState([]);
     const [deleteCount, setDeleteCount] = useState(0);
-    const navigate = useNavigate();
     const headers = [
         "INVENTORY ITEM",
         "CATEGORY",
@@ -38,11 +37,6 @@ function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
         // console.log(click);
         setIsOpen(true);
         setInventoriesToDelete([click]);
-    }
-
-    function handleClickEdit(clickedItem) {
-        setInventoryToEdit(clickedItem);
-        navigate("/editinventory");
     }
 
     useEffect(() => {
