@@ -124,18 +124,11 @@ function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
                                         <h4 className="inventories__lists-title">
                                             INVENTORY ITEM
                                         </h4>
-                                        {/* <br /> */}
                                         <Link
-                                            // key={inventory.id}
                                             className="link"
                                             to={`/inventories/${inventory.id}`}
-                                            // inventory={inventory}
-                                            onClick={handleLinkClick}
-                                        >
+                                            onClick={handleLinkClick}>
                                             <p>{inventory.item_name}</p>
-                                            {/* <Link className='inventories__lists--text-underline'>
-                                            {inventory.item_name}
-                                        </Link> */}
                                             <img
                                                 className="inventories__lists-name-color"
                                                 src={chevronIcon}
@@ -196,9 +189,6 @@ function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
                                                 className="inventories__lists-actions-icons"
                                                 src={editIcon}
                                                 alt="edit icon"
-                                                // onClick={() =>
-                                                //     handleClick(inventories)
-                                                // }
                                             />
                                         </Link>
                                     </td>
