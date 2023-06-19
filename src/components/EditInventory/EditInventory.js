@@ -1,7 +1,7 @@
 import "./EditInventory.scss";
 import backIcon from "../../assets/Icons/arrow_back-24px.svg";
 import { useState, useEffect, useRef } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 function EditInventory({ inventoryToEdit, setEditCount }) {
