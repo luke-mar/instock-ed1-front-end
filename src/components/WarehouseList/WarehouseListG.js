@@ -26,17 +26,13 @@ function WarehouseList({ setWarehouseToEdit, editCount }) {
 
     function refreshFunction() {
         setDeleteCount(deleteCount + 1);
-        // console.log("updated deleteCount to", deleteCount);
-        // delete console.logs before submitting
     }
 
     function handleLinkClick(event) {
         const warehouseId = event.target.id;
-        // console.log(warehouseId);
     }
 
     function handleClick(click) {
-        // console.log(click);
         setIsOpen(true);
         setWarehouseToDelete(click);
     }
@@ -59,7 +55,6 @@ function WarehouseList({ setWarehouseToEdit, editCount }) {
             });
     }, [deleteCount, editCount]);
 
-    console.log(warehouses);
 
     const filteredWarehouses = warehouses.filter((warehouse) => {
         return warehouse.warehouse_name
@@ -70,10 +65,6 @@ function WarehouseList({ setWarehouseToEdit, editCount }) {
     const handleChange = (e) => {
         setSearchText(e.target.value);
     };
-
-    console.log("this is the search text", searchText);
-
-    console.log("filtered warehouse", filteredWarehouses);
 
     return (
         <>
