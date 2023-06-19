@@ -23,15 +23,24 @@ function SingleWarehouseInventory(props) {
     }, [props.id, deleteCount, props.editCount]);
 
     const arrow = "  >";
+
     function refreshFunction() {
         setDeleteCount(deleteCount + 1);
     }
     const [inventoryToDelete, setInventoryToDelete] = useState(null);
+
     function handleClick(click) {
         console.log(click);
         setIsOpen(true);
         setInventoryToDelete(click);
     }
+
+    function handleTabletClick(click) {
+        console.log('trashcan clicked:', click);
+        setIsOpen(true);
+        setInventoryToDelete(click);
+    }
+    console.log(inventoryList);
 
     return (
         <>
@@ -70,6 +79,7 @@ function SingleWarehouseInventory(props) {
                                 <p className="inventory-item__category">
                                     {invent.category}
                                 </p>
+                                {/* mobile delete icon*/}
                                 <img
                                     className="delete mobile-only-img"
                                     alt="delete icon"
@@ -93,11 +103,12 @@ function SingleWarehouseInventory(props) {
                                         {invent.quantity}
                                     </p>
                                     <div className="inventory-item__icons">
+                                        {/* tablet/desktop delete icon */}
                                         <img
                                             className="delete"
-                                            src={deleteImg}
                                             alt="delete icon"
-                                            onClick={() => handleClick(invent)}
+                                            src={deleteImg}
+                                            onClick={() => handleTabletClick(invent)}
                                         ></img>
                                         <Link
                                             to={`/inventories/${invent.id}/editinventory`}

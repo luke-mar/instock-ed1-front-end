@@ -6,7 +6,7 @@ function Modal({ open, children }) {
     if (!open) return null
     return ReactDom.createPortal(
         <div className="modal-overlay">
-            <div className="model-overlay__container">
+            <div className="modal-overlay__container">
                 {children}
             </div>
         </div>,

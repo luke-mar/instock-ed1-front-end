@@ -66,6 +66,7 @@ function WarehouseList({ setWarehouseToEdit, editCount }) {
         setSearchText(e.target.value);
     };
 
+
     return (
         <>
             <div className="">
