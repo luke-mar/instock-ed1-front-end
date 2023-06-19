@@ -43,7 +43,7 @@ function InventoryList({ setInventoryToEdit, setEditCount, editCount }) {
   useEffect(() => {
     console.log("calling axios");
     axios
-      .get("http://localhost:8081/inventories")
+      .get("http://localhost:8080/inventories")
       .then((response) => {
         // console.log("got a response from axios", response)
         if (response.data) {
