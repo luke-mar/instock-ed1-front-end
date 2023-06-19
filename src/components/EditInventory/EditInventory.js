@@ -56,7 +56,7 @@ function EditInventory({ inventoryToEdit, setEditCount }) {
             !description ||
             !category ||
             !status ||
-            !quantity
+            quantity === undefined || isNaN(quantity)
         ) {
             alert("Please fill out all fields before saving!");
             return;
