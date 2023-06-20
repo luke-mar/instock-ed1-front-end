@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Instock - Warehouse Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Instock is a web-based warehouse management system that allows users to create, manage, and track inventory within warehouses. It provides a user-friendly interface for performing CRUD (Create, Read, Update, Delete) operations on warehouses and inventory items. The application is built using React, Sass, Node.js, Express, MySQL, and Knex.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Warehouse Management: Create, update, and delete warehouses.
+- Inventory Management: Add, update, and delete inventory items within warehouses.
+- Search and Filter: Easily search and filter warehouses and inventory items based on various criteria.
+- Dashboard: View a summary of warehouse and inventory statistics.
+- Responsive Design: The application is responsive and optimized for various screen sizes and devices.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+To run the Instock application on your local machine, make sure you have the following software installed:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js: [Download Node.js](https://nodejs.org)
+- MySQL: [Download MySQL](https://www.mysql.com/downloads/)
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
 
-### `npm run build`
+   ```
+   git clone 
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   cd instock
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the dependencies:
 
-### `npm run eject`
+   ```
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Set up the database:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Create a new MySQL database.
+   - Configure the database connection settings in the `config/database.js` file.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Run the database migrations:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```
+   npm run migrate
+   ```
 
-## Learn More
+6. Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+7. Open your browser and visit `http://localhost:3000` to access the Instock application.
 
-### Code Splitting
+## Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The folder structure of the Instock project is organized as follows:
 
-### Analyzing the Bundle Size
+- `client`: Contains the frontend code built using React and Sass.
+- `server`: Contains the backend code built using Node.js, Express, MySQL, and Knex.
+- `migrations`: Contains the database migration files.
+- `config`: Contains the configuration files for the database and other settings.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributors
 
-### Making a Progressive Web App
+Lucas Martinez
+Armando Fernandez
+Olivia Banks
+Isaac Chammah
+Natasha Anglade
+Gennesis Baez
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
